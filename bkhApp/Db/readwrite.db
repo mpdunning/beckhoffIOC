@@ -1,0 +1,38 @@
+#--- for reading hidden registers ----------------------------
+record( longout, "$(P):LO:$(MOD):CHAN"){
+  field( DESC, "Channel:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT),0,1)LO_RCHAN")
+  field( VAL,  "0")
+#  field( PINI, "YES")
+}
+record( longout, "$(P):LO:$(MOD):REGN"){
+  field( DESC, "RegNumb:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT),0,1)LO_REGN")
+  field( VAL,  "8")
+}
+record( longin, "$(P):LI:$(MOD):SBVAL"){
+  field( DESC, "SByte:")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) 0 1)LI_SBVAL")
+}
+record( longin, "$(P):LI:$(MOD):REGVAL"){
+  field( DESC, "Read Back Value:")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) 0 1)LI_RVAL")
+}
+record( longout, "$(P):LO:$(MOD):WREG:VAL"){
+  field( DESC, "Write value:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT),0,1)LO_WRVAL")
+}
+record( longin, "$(P):LI:$(MOD):WR:RBV"){
+  field( DESC, "Read back:")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) 0 1)LI_WRVAL")
+}
+

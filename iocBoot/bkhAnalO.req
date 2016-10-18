@@ -1,0 +1,10 @@
+$(P):AO:$(MOD):CH$(N).DESC
+$(P):AO:$(MOD):CH$(N).HIHI
+$(P):AO:$(MOD):CH$(N).HIGH
+$(P):AO:$(MOD):CH$(N).LOW
+$(P):AO:$(MOD):CH$(N).LOLO
+$(P):AO:$(MOD):CH$(N).HHSV
+$(P):AO:$(MOD):CH$(N).HSV
+$(P):AO:$(MOD):CH$(N).LSV
+$(P):AO:$(MOD):CH$(N).LLSV
+$(P):AO:$(MOD):CH$(N).VAL

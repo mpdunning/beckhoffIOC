@@ -1,0 +1,45 @@
+Files in this directory are used to build .db files used by IOCs.  There is
+a substitutions file for each IOC, which uses a combination of templates
+to implement records needed to do IO with registers in the bus coupler and
+all bus terminals used.
+A brief description of template files follows:
+
+bkhxRegs.template is used for reading integer values from coupler registers.
+
+bkhxWRegs.template is used for writing integer values to coupler registers.
+
+kl-ai.template is used to create records for reading channel status byte and
+	data from an analog bus terminal.  Linear conversion is done and
+	and floating point value is placed in the ai record.
+	Examples of analog bus terminals are: kl3102, kl3408, kl3314, kl3182...
+
+kl-bi.template is used to create records for reading channel data from digital
+	input bus terminal, e.g. kl1124.
+
+kl-bo.template is used to create records for writing binary data to a digital
+	output bus terminal channel, e.g. kl2408.
+
+kl-li.template is used to create records for reading channel status byte and
+	integer data from a bus terminal.  It was created for reading data
+	from kl1512 Up/Down counter.  It could also be used with any analog
+	input bus terminal where no conversion is needed.
+
+kl-lo.template is used to implement a counter reset button needed for the
+	kl1512 bus terminal.  This is rather specialized.  It is implemented
+	as a sequece of two write operations with a delay in between.  First
+	operation writes value 0 to the control/status byte of a channel and
+	after delay of 0.5 seconds, the second operation writes value 2 to
+	the control/status byte, which clears the counter.
+
+klTRRegs.template is used to implement a handful of records which consist of
+	properly sequenced writes and reads in order to read a value from
+	a bus terminal registe specified by register numberr.
+
+klTWRegs.template is used to implement a handful of records which consist of
+	properly sequenced writes and reads in order to write a value to
+	a bus terminal register specified by register number.
+
+See the README file in the <TOP> directory for general comments about this
+IOC implementation.
+
+Last modified on 5/27/2011, zms.

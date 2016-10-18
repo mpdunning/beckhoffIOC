@@ -1,0 +1,15 @@
+record( bo, "$(P):BO:$(MOD):BIT$(N)"){
+  field( DESC, "$(MOD) BIT$(N):")
+  field( DISV, "$(DISV)")
+#  field( DTYP, "asynUInt32Digital")
+#  field( OUT,  "@asynMask($(PORT) $(OFF) 0x1)")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+  field( FLNK, "$(P):DF:$(MOD):BIT$(N)")
+  field( PINI, "$(PINI)")
+}
+record( dfanout, "$(P):DF:$(MOD):BIT$(N)"){
+  field( DOL,  "$(P):BO:$(MOD):BIT$(N)")
+  field( OMSL, "closed_loop")
+  field( OUTA, "$(OUTA).DISA")
+}

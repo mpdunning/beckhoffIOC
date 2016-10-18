@@ -1,0 +1,13 @@
+record( longin, "$(P):LI:$(MOD):SB$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynUInt32Digital")
+  field( INP,  "@asynMask($(PORT) $(OFF1) 0xffff)")
+  field( SCAN, "I/O Intr")
+}
+record( longin, "$(P):LI:$(MOD):CH$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( INP,  "@asynMask($(PORT) $(OFF2) -16)")
+  field( EGU,  "$(EGU)")
+  field( SCAN, "I/O Intr")
+}

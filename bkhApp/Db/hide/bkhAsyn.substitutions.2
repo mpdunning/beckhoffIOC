@@ -1,0 +1,66 @@
+#file analogIn.db
+#{
+#pattern { N,ADDR,  DESC,      MOD,  PORT, EGU,EGUL,EGUF,PREC}
+#	{ 1,   0,Chan01,3408-$(M), A3408,   V,   0,  10,   2}
+#	{ 2,   1,Chan02,3408-$(M), A3408,   V,   0,  10,   2}
+#	{ 3,   2,Chan03,3408-$(M), A3408,   V,   0,  10,   2}
+#	{ 4,   3,Chan04,3408-$(M), A3408,   V,   0,  10,   2}
+#	{ 5,   4,Chan05,3408-$(M), A3408,   V,   0,  10,   2}
+#	{ 6,   5,Chan06,3408-$(M), A3408,   V,   0,  10,   2}
+#	{ 7,   6,Chan07,3408-$(M), A3408,   V,   0,  10,   2}
+#	{ 8,   7,Chan08,3408-$(M), A3408,   V,   0,  10,   2}
+#}
+#file analogIn.db
+#{
+#pattern { N,ADDR,  DESC,      MOD,  PORT, EGU,EGUL,EGUF,PREC}
+#	{ 1,   0,Chan01,3102-$(M), A3102,   V,   0,  10,   2}
+#	{ 2,   1,Chan02,3102-$(M), A3102,   V,   0,  10,   2}
+#}
+#file analogTemp.db
+#{
+#pattern { N,ADDR,  DESC,      MOD,  PORT, ESLO,PREC}
+#	{ 1,   0,Chan01,3314-$(M), A3314,  0.1,   2}
+#	{ 2,   1,Chan02,3314-$(M), A3314,  0.1,   2}
+#	{ 3,   2,Chan03,3314-$(M), A3314,  0.1,   2}
+#	{ 4,   3,Chan04,3314-$(M), A3314,  0.1,   2}
+#}
+file bkhBi.db
+{
+pattern	{ N,       MOD,  PORT, OFF}
+	{ 0, 1124-$(M), A1124,   0}
+	{ 1, 1124-$(M), A1124,   1}
+	{ 2, 1124-$(M), A1124,   2}
+	{ 3, 1124-$(M), A1124,   3}
+}
+#file readwrite.db
+#{
+#pattern	{      MOD,  PORT}
+#	{3408-$(M), A3408}
+#	{3102-$(M), A3102}
+#	{3314-$(M), A3314}
+#}
+#file b9000.db{
+#	{ PORT=B900R}
+#}
+#file b9000RRegs.db
+#{
+#pattern	{ N,                 DESC,  PORT}
+#	{10,      "PLC Interface", B900R}
+#	{11, "Bus Term Diagnossi", B900R}
+#	{12, "Bus Coupler Status", B900R}
+#	{16, "anlg output length", B900R}
+#	{17, "anlg inputs length", B900R}
+#	{18, "Outpt Image length", B900R}
+#	{19, "Input Image length", B900R}
+#	{32, "Watchdog curr time", B900R}
+#}
+#file b9000WRegs.db
+#{
+#pattern	{ N,                 DESC,  PORT}
+#	{ 0,      "PLC Interface", B900W}
+#	{ 1, "Bus Term Diagnossi", B900W}
+#	{22,"Watchdog Tmout (ms)", B900W}
+#	{23,     "Watchdog Reset", B900W}
+#	{24,      "Watchdog type", B900W}
+#	{25,    "Modbus TCP mode", B900W}
+#}

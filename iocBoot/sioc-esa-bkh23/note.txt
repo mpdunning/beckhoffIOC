@@ -1,0 +1,6 @@
+BK9000 + KL3132 + KL2531 + KL2541 + KL4132 + KL9000
+KL3132 - 2 channel 16bit +-10V ADC, 140 ms conversion time,
+kl2531 - 1 channel stepper motor controller, 1.5A max
+KL2541 - 1 channel stepper motor controller, 5A max
+KL4132 - 2 channel analog output, -+10V, 16bits.
+KL9010 - terminator

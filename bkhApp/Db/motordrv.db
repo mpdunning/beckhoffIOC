@@ -1,0 +1,35 @@
+record( stringin, "$(P):SI:$(MOD):DRV:NAME"){
+  field( DESC, "Driver Name:")
+  field( DTYP, "asynOctetRead")
+  field( INP,  "@asyn($(PORT),0,1)SI_NAME")
+  field( SCAN, "I/O Intr")
+# field( PINI, "1")
+}
+#--- After IOC init trigger records.  They start reading hidden registers ---
+#--- so that associated records get properly initialized. -------------------
+record( bo, "$(P):BO:$(MOD):INIT:A"){
+  field( DESC, "Init Driver A:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT),0,1)BO_INITA")
+  field( HIGH, "0.1")
+  field( ZNAM, "Not")
+  field( ONAM, "Yes")
+}
+record( bo, "$(P):BO:$(MOD):INIT:B"){
+  field( DESC, "Init Driver B:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORTB),0,1)BO_INITB")
+  field( HIGH, "0.1")
+  field( ZNAM, "Not")
+  field( ONAM, "Yes")
+  field( VAL,  "0")
+}
+record( bo, "$(P):BO:$(MOD):INIT:C"){
+  field( DESC, "Init Driver C:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORTC),0,1)BO_INITC")
+  field( HIGH, "0.1")
+  field( ZNAM, "Not")
+  field( ONAM, "Yes")
+  field( VAL,  "0")
+}

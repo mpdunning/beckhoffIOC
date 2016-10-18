@@ -1,0 +1,22 @@
+record( calc, "$(P):CALC:REM:LOC"){
+  field( DESC, "Is it Remote or Local")
+  field( CALC, "(A<3?0:(A>7?2:1))")
+  field( INPA, "$(P):AI:3408-4:CH4 NPP")
+  field( FLNK, "$(P):LO:REM:LOC")
+}
+record( longout, "$(P):LO:REM:LOC"){
+  field( DESC, "Pass it on")
+  field( DOL,  "$(P):CALC:REM:LOC")
+  field( OMSL, "closed_loop")
+  field( OUT,  "$(P):MBBI:REM:LOC PP")
+}
+record( mbbi, "$(P):MBBI:REM:LOC"){
+  field( DESC, "Main Switch is in:")
+  field( NOBT, "3")
+  field( ZRVL, "0")
+  field( ONVL, "1")
+  field( TWVL, "2")
+  field( ZRST, "Off")
+  field( ONST, "Local")
+  field( TWST, "Remote")
+}

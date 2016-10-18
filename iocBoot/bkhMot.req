@@ -1,0 +1,11 @@
+$(P):LI:$(MOT)-$(M):DATA.DESC
+$(P):LO:SC:$(MOT)-$(M):RWR:MAXV
+$(P):AO:$(MOT)-$(M):CH1:CONV:POS:A
+$(P):AO:$(MOT)-$(M):CH1:CONV:POS:B
+$(P):AO:SC:$(MOT)-$(M):CH1:SET:POS:MM
+$(P):AO:$(MOT)-$(M):CH1:SET:INC:MM
+$(P):LO:SC:$(MOT)-$(M):RWR:MINV
+$(P):LO:SC:$(MOT)-$(M):RWR:MAXA
+$(P):LO:SC:$(MOT)-$(M):RWR:EACC
+$(P):LO:SC:$(MOT)-$(M):RWR:MAXD
+$(P):LO:$(MOT)-$(M):CH1:JOG:VAL

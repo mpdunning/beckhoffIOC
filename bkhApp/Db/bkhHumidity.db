@@ -1,0 +1,10 @@
+record( calc,"$(P):$(AREA):HUMIDITY") {
+  field( DESC, "$(AREA) relative humidity")
+  field( EGU,  "%")
+  field( PREC, "2")
+  field( INPA, "$(P):AI:$(MOD):CH$(CHAN) CPP MS")
+  field( INPB, "$(SLOPE)")
+  field( INPC, "$(OFFSET)")
+  field( CALC, "A*B+C")
+}
+

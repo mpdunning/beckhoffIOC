@@ -1,0 +1,46 @@
+# This template is for an analog device.  Use SLOPE conversion to get V.
+#-----------------------------------------------------------------------
+record( longin, "$(P):LI:$(MOD):SBYTE$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_SBYTE")
+}
+record( longin, "$(P):LI:$(MOD):DATA$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_DATA")
+  field( FLNK, "$(P):AI:$(MOD):CH$(N)")
+}
+record( ai, "$(P):AI:$(MOD):CH$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "Raw Soft Channel")
+  field( INP,  "$(P):LI:$(MOD):DATA$(N)")
+  field( LINR, "SLOPE")
+  field( EGU,  "$(EGU)")
+  field( ESLO, "$(ESLO)")
+  field( EOFF, "$(EOFF)")
+  field( PREC, "$(PREC)")
+  field( FLNK, "$(P):CALC:$(MOD):CH$(N)")
+}
+#--- conversion to arbitrary units ------------------------
+record( ao,"$(P):AO:$(MOD):CH$(N):A"){
+  field( DESC, "Intercept:")
+  field( PREC, "$(PREC)")
+  field( VAL,  "0.0")
+}
+record( ao,"$(P):AO:$(MOD):CH$(N):B"){
+  field( DESC, "Slope:")
+  field( PREC, "$(PREC)")
+  field( VAL,  "1.0")
+}
+record( calc, "$(P):CALC:$(MOD):CH$(N)"){
+  field( DESC, "Convert:")
+  field( CALC, "A+B*C")
+  field( PREC, "3")
+  field( EGU,  "$(EGU2)")
+  field( INPA, "$(P):AO:$(MOD):CH$(N):A.VAL")
+  field( INPB, "$(P):AO:$(MOD):CH$(N):B.VAL")
+  field( INPC, "$(P):AI:$(MOD):CH$(N).VAL")
+}

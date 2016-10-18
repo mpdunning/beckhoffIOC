@@ -1,0 +1,18 @@
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=1
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=2
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=3
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=4
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=5
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=6
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=7
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=8
+
+file ../bkhDigiO.req P=$(P),MOD=2124-$(M),N=1
+file ../bkhDigiO.req P=$(P),MOD=2124-$(M),N=2
+file ../bkhDigiO.req P=$(P),MOD=2124-$(M),N=3
+file ../bkhDigiO.req P=$(P),MOD=2124-$(M),N=4
+file ../bkhDigiO.req P=$(P),MOD=2124-$(M),N=5
+file ../bkhDigiO.req P=$(P),MOD=2124-$(M),N=6
+file ../bkhDigiO.req P=$(P),MOD=2124-$(M),N=7
+file ../bkhDigiO.req P=$(P),MOD=2124-$(M),N=8
+

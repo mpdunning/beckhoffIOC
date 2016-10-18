@@ -1,0 +1,102 @@
+# file: twoMotMove.db
+# records for coordinated moving of two motors, either in the same direction
+# or in opposite direction.  Always by the same amount.
+#---------------------------------------------------------------------------
+record( ao, "$(P):AO:$(MD):PRESET:REL:1"){
+  field( DESC, "Relative:")
+  field( DTYP, "Soft Channel")
+  field( OMSL, "closed_loop")
+  field( DOL,  "0.05")
+  field( EGU,  "mm")
+  field( PREC, "2")
+  field( OUT,  "$(P):AO:$(MD):SET:REL:1 PP")
+}
+record( ao, "$(P):AO:$(MD):PRESET:REL:2"){
+  field( DESC, "Relative:")
+  field( DTYP, "Soft Channel")
+  field( OMSL, "closed_loop")
+  field( DOL,  "0.1")
+  field( EGU,  "mm")
+  field( PREC, "2")
+  field( OUT,  "$(P):AO:$(MD):SET:REL:1 PP")
+}
+record( ao, "$(P):AO:$(MD):PRESET:REL:3"){
+  field( DESC, "Relative:")
+  field( DTYP, "Soft Channel")
+  field( OMSL, "closed_loop")
+  field( DOL,  "0.2")
+  field( EGU,  "mm")
+  field( PREC, "2")
+  field( OUT,  "$(P):AO:$(MD):SET:REL:1 PP")
+}
+record( ao, "$(P):AO:$(MD):PRESET:REL:4"){
+  field( DESC, "Relative:")
+  field( DTYP, "Soft Channel")
+  field( OMSL, "closed_loop")
+  field( DOL,  "0.5")
+  field( EGU,  "mm")
+  field( PREC, "2")
+  field( OUT,  "$(P):AO:$(MD):SET:REL:1 PP")
+}
+record( ao, "$(P):AO:$(MD):PRESET:REL:5"){
+  field( DESC, "Relative:")
+  field( DTYP, "Soft Channel")
+  field( OMSL, "closed_loop")
+  field( DOL,  "1")
+  field( EGU,  "mm")
+  field( PREC, "2")
+  field( OUT,  "$(P):AO:$(MD):SET:REL:1 PP")
+}
+record( ao, "$(P):AO:$(MD):PRESET:REL:6"){
+  field( DESC, "Relative:")
+  field( DTYP, "Soft Channel")
+  field( OMSL, "closed_loop")
+  field( DOL,  "2")
+  field( EGU,  "mm")
+  field( PREC, "2")
+  field( OUT,  "$(P):AO:$(MD):SET:REL:1 PP")
+}
+record( ao, "$(P):AO:$(MD):SET:REL:1"){
+  field( DESC, "Relative:")
+  field( DTYP, "Soft Channel")
+  field( EGU,  "mm")
+  field( PREC, "2")
+  field( PINI, "YES")
+  field( FLNK, "$(P):DF:$(MD):REL:1")
+}
+record( dfanout, "$(P):DF:$(MD):REL:1"){
+  field( DESC, "value for relative move")
+  field( DOL,  "$(P):AO:$(MD):SET:REL:1")
+  field( OMSL, "closed_loop")
+  field( OUTA, "$(P):AO:$(M1):CH1:SET:INC:MM PP")
+  field( OUTB, "$(P):AO:$(M2):CH1:SET:INC:MM PP")
+}
+record( dfanout, "$(P):DF:$(MD):REL:RL"){
+  field( DESC, "Move right,left")
+  field( DOL,  "1")
+  field( OMSL, "closed_loop")
+  field( OUTA, "$(P):BO:$(M1):CH1:JOG:FOR PP")
+  field( OUTB, "$(P):BO:$(M2):CH1:JOG:REV PP")
+}
+record( dfanout, "$(P):DF:$(MD):REL:LR"){
+  field( DESC, "Move left,right")
+  field( DOL,  "1")
+  field( OMSL, "closed_loop")
+  field( OUTA, "$(P):BO:$(M1):CH1:JOG:REV PP")
+  field( OUTB, "$(P):BO:$(M2):CH1:JOG:FOR PP")
+}
+record( dfanout, "$(P):DF:$(MD):REL:RR"){
+  field( DESC, "Move right,right")
+  field( DOL,  "1")
+  field( OMSL, "closed_loop")
+  field( OUTA, "$(P):BO:$(M1):CH1:JOG:FOR PP")
+  field( OUTB, "$(P):BO:$(M2):CH1:JOG:FOR PP")
+}
+record( dfanout, "$(P):DF:$(MD):REL:LL"){
+  field( DESC, "Move left,left")
+  field( DOL,  "1")
+  field( OMSL, "closed_loop")
+  field( OUTA, "$(P):BO:$(M1):CH1:JOG:REV PP")
+  field( OUTB, "$(P):BO:$(M2):CH1:JOG:REV PP")
+}
+

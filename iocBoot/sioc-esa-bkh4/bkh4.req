@@ -1,0 +1,31 @@
+file ../bkhAnalI.req P=ESAA,MOD=3408-4,N=1
+file ../bkhAnalI.req P=ESAA,MOD=3408-4,N=2
+file ../bkhAnalI.req P=ESAA,MOD=3408-4,N=3
+file ../bkhAnalI.req P=ESAA,MOD=3408-4,N=4
+file ../bkhAnalI.req P=ESAA,MOD=3408-4,N=5
+file ../bkhAnalI.req P=ESAA,MOD=3408-4,N=6
+file ../bkhAnalI.req P=ESAA,MOD=3408-4,N=7
+file ../bkhAnalI.req P=ESAA,MOD=3408-4,N=8
+
+file ../bkhAnalO.req P=ESAA,MOD=4132-4:PC,N=1
+file ../bkhAnalO.req P=ESAA,MOD=4132-4:PC,N=2
+file ../bkhAnalO.req P=ESAA,MOD=4132-4:PC,N=3
+file ../bkhAnalO.req P=ESAA,MOD=4132-4:PC,N=4
+
+file ../bkhDigiI.req P=ESAA,MOD=1104-4,N=0
+file ../bkhDigiI.req P=ESAA,MOD=1104-4,N=1
+file ../bkhDigiI.req P=ESAA,MOD=1104-4,N=2
+file ../bkhDigiI.req P=ESAA,MOD=1104-4,N=3
+file ../bkhDigiI.req P=ESAA,MOD=1104-4,N=4
+file ../bkhDigiI.req P=ESAA,MOD=1104-4,N=5
+file ../bkhDigiI.req P=ESAA,MOD=1104-4,N=6
+file ../bkhDigiI.req P=ESAA,MOD=1104-4,N=7
+
+file ../bkhDigiO.req P=ESAA,MOD=2408-4,N=0
+file ../bkhDigiO.req P=ESAA,MOD=2408-4,N=1
+file ../bkhDigiO.req P=ESAA,MOD=2408-4,N=2
+file ../bkhDigiO.req P=ESAA,MOD=2408-4,N=3
+file ../bkhDigiO.req P=ESAA,MOD=2408-4,N=4
+file ../bkhDigiO.req P=ESAA,MOD=2408-4,N=5
+file ../bkhDigiO.req P=ESAA,MOD=2408-4,N=6
+file ../bkhDigiO.req P=ESAA,MOD=2408-4,N=7

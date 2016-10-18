@@ -1,0 +1,47 @@
+record( ai,"$(P):SLED$(S):m$(M1):SAVED$(SAV)"){
+  field( DESC, "Saved position")
+  field( PREC, "$(PREC)")
+  field( INP,  "$(P):CALC:$(MOD)-$(M1)-$(M):POS:MM")
+  field( FLNK, "$(P):SLED$(S):m$(M2):SAVED$(SAV).PROC")
+}
+record( ai,"$(P):SLED$(S):m$(M2):SAVED$(SAV)"){
+  field( DESC, "Saved position")
+  field( PREC, "$(PREC)")
+  field( INP,  "$(P):CALC:$(MOD)-$(M2)-$(M):POS:MM")
+}
+
+record( calcout,"$(P):SLED$(S):m$(M1):RESTORE$(SAV)"){
+  field( DESC, "Restore position")
+  field( PREC, "$(PREC)")
+  field( INPA, "$(P):SLED$(S):m$(M1):SAVED$(SAV).VAL")
+  field( CALC, "A")
+  field( OUT,  "$(P):AO:SC:$(MOD)-$(M1)-$(M):SET:POS:MM.VAL")
+  field( FLNK, "$(P):SLED$(S):m$(M1):FO$(SAV).PROC")
+}
+record( longout, "$(P):SLED$(S):m$(M1):LO$(SAV)"){
+  field( VAL,  "1")
+  field( OUT,  "$(P):BO:$(MOD)-$(M1)-$(M):GO:POS")
+}
+record( fanout, "$(P):SLED$(S):m$(M1):FO$(SAV)"){
+  field( LNK1, "$(P):AO:SC:$(MOD)-$(M1)-$(M):SET:POS:MM.PROC")
+  field( LNK2, "$(P):SLED$(S):m$(M1):LO$(SAV).PROC")
+  field( LNK3, "$(P):BO:$(MOD)-$(M1)-$(M):GO:POS.PROC")
+  field( LNK4, "$(P):SLED$(S):m$(M2):RESTORE$(SAV).PROC")
+}
+record( calcout,"$(P):SLED$(S):m$(M2):RESTORE$(SAV)"){
+  field( DESC, "Restore position")
+  field( PREC, "$(PREC)")
+  field( INPA, "$(P):SLED$(S):m$(M2):SAVED$(SAV).VAL")
+  field( CALC, "A")
+  field( OUT,  "$(P):AO:SC:$(MOD)-$(M2)-$(M):SET:POS:MM.VAL")
+  field( FLNK, "$(P):SLED$(S):m$(M2):FO$(SAV).PROC")
+}
+record( longout, "$(P):SLED$(S):m$(M2):LO$(SAV)"){
+  field( VAL,  "1")
+  field( OUT,  "$(P):BO:$(MOD)-$(M2)-$(M):GO:POS")
+}
+record( fanout, "$(P):SLED$(S):m$(M2):FO$(SAV)"){
+  field( LNK1, "$(P):AO:SC:$(MOD)-$(M2)-$(M):SET:POS:MM.PROC")
+  field( LNK2, "$(P):SLED$(S):m$(M2):LO$(SAV).PROC")
+  field( LNK3, "$(P):BO:$(MOD)-$(M2)-$(M):GO:POS.PROC")
+}

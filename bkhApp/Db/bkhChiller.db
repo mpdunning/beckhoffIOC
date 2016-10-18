@@ -1,0 +1,25 @@
+record( calc,"$(P):CHILLER:$(CHILLER):FLOW") {
+  field( DESC, "$(CHILLER) chiller flow")
+  field( EGU,  "$(EGU)")
+  field( PREC, "$(PREC)")
+  field( INPA, "$(P):AI:$(MOD):CH$(CHAN) CPP MS")
+  field( INPB, "$(SLOPE)")
+  field( INPC, "$(OFFSET)")
+  field( CALC, "A*B+C")
+}
+record( bi,"$(P):CHILLER:OSCILLATOR:STATUS:SUMMARY") {
+  field( DESC, "OSCILLATOR chiller status summary")
+  field( INP,  "$(P):BI:1124-8:BIT1 CPP MS")
+  field( ZNAM, "ERROR")
+  field( ONAM, "OK")
+  field( ZSV,  "MAJOR")
+  field( OSV,  "NO_ALARM")
+}
+record( bi,"$(P):CHILLER:OSCILLATOR:TEMP:SUMMARY") {
+  field( DESC, "OSCILLATOR chiller temp summary")
+  field( INP,  "$(P):BI:1124-8:BIT2 CPP MS")
+  field( ZNAM, "ERROR")
+  field( ONAM, "OK")
+  field( ZSV,  "MAJOR")
+  field( OSV,  "NO_ALARM")
+}

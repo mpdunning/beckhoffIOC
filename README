@@ -1,0 +1,133 @@
+This is an implementation of an IOC to control and monitor Beckhoff Fieldbus
+systems consisting of a BK90xx coupler and a number of KL analog and digital
+terminals.  This implementation is using asyn and modbus support modules.  The
+modbus module is an implementation of modbus TCP protocol by Mark Rivers.
+
+Note that if the system contains output bus terminals then the Watchdog timer
+needs to be dealt with.  One of two things can be done:
+1. disable the Watchdog timer.  This can be done using the KS2000 utility
+   from Beckhoff. I have also implemented data bases which allow reading and
+   modifying registers in the coupler and in field bus terminals.
+2. Implement an EPICS output record that writes something to one of the
+   terminals at a frequency of 2Hz or faster.
+
+One can modify contents of a register in a bus terminal using TwinCat utility
+from Beckhoff.  This can now also be accomplished at runtime within the IOC.
+Data base templates and EDM screen which are part of this package, are used for
+that.
+Some analog input bus terminals may need to be configured for correct handling
+of signals.  Notably, it may be necessary to modify contents of features
+registers on KL3314 terminal to specify the correct thermocouple type used.
+Some other analog input bus terminals may need to be configured by setting
+the channel offset and or gain.
+
+In directory bkhApp/edl there are a number of EDM files.  File bkhRegs.edl
+displays number of coupler registers and allows to modify contents of some
+of these.  The most important is the "Watchdog Tmout (ms)", which the
+"Watchdog Modbus TCP" with a factory default of 1000 ms.  One way to deal with
+it is to set it to 0, which disbles it.  Consult documentation for the BK9000
+coupler for details.
+There also exists an EDM screen, file bkhTR.edl, which allows selecting
+a channel number for which one can read from a specified bus terminal register.
+This edm screen also allows writing a value to a specified register in a bus
+terminal.  A bkhApp/Db/README file describes how EPICS records are created to
+allow reading and writing from and to bus terminal registers.  The bkhTR.edl
+file presently allows accessing 12 analog channels.  This can be easily modified
+for more channels, should that be needed for a specific application.  This is
+done in the Embedded Window Properties/Menu Info dialog.
+
+One needs to understand the details of how the engineers at Beckhoff designed
+their devices to be able to successfully modify contents of a bus terminal
+register.  Here is a brief description:
+1. Select the channel for which you want do IO to some register.
+2. In write section, enter 31 in "Register #" text control,
+3. in "Data to write" enter hex value 1235,
+4. Press the write button;  this enables write access to bus terminal registers.
+5. Enter the register number you want to write to in "Register #",
+6. Enter a value to be written to the register in "Data to write",
+7. Press the write button; this write to the register.
+8. Enter 31 in "Register #",
+9. Enter 0 in "Data to write"
+10. Press the write button.  This disables write access to registers.
+11. To verify, enter 31 in "Register #" above the "Write section" and 
+    Readback should show 0.
+12. Also enter the register number you modified in "Register #" above the
+    "Write section" and you should see the value you entered in Readback.
+
+It is assumed that enter a value in a text control means type the desired value
+and press the Enter key.  Hopefully all this is as clear as a bell.
+
+st.cmd file:
+
+The modbus configuration is achieved by the following configuration statements:
+
+epicsEnvSet("N","9")
+
+drvAsynIPPortConfigure( "BKH$(N)","192.168.0.193:502",0,0,1)
+modbusInterposeConfig( "BKH$(N)",0,1000)
+drvModbusAsynConfigure("BKH$(N)_CPL_R0","BKH$(N)",0,3,0x1000,7,0,1000,"9000")
+drvModbusAsynConfigure("BKH$(N)_CPL_R1","BKH$(N)",0,3,0x100a,3,0,1000,"9000")
+drvModbusAsynConfigure("BKH$(N)_CPL_R2","BKH$(N)",0,3,0x1010,4,0,1000,"9000")
+drvModbusAsynConfigure("BKH$(N)_CPL_R3","BKH$(N)",0,3,0x1020,1,0,1000,"9000")
+drvModbusAsynConfigure("BKH$(N)_CPL_W1","BKH$(N)",0,6,0x110a,2,0,1000,"9xrw")
+drvModbusAsynConfigure("BKH$(N)_CPL_W2","BKH$(N)",0,6,0x1120,4,0,1000,"9xrw")
+drvModbusAsynConfigure("BKH$(N)_1512",  "BKH$(N)",0,3,     0,4,0,100,"KL1512")
+drvModbusAsynConfigure("BKH$(N)_1512_W","BKH$(N)",0,6, 0x800,4,0,1000,"KL1512")
+drvModbusAsynConfigure("BKH$(N)_2408",  "BKH$(N)",0,5,     0,8,0,1000,"KL2408")
+drvModbusAsynConfigure("BKH$(N)_1124",  "BKH$(N)",0,2,     0,4,0,1000,"KL1124")
+
+In drvAsynIPPortConfigure
+the first parameter is the TCP port name, the second is IP address
+of the device and the modbus port numer, next is priority, noAutoConnect,
+and noProcessEos.
+So, in the above example, I am using BKH9 for the port name, 0 priority,
+auto connect, and no process EOS.
+
+In modbusInterposeConfig
+the first argument is the same TCP port name that was used in
+drvAsynIPPortConfigure.  The second argument is link type, 0 is for TCP/IP,
+and the third argument is timeout in ms.
+
+In drvModbusAsynConfigure
+the first argument is a name of the modbus port to be created.  This name is
+used in EPICS records that access the address space created in this call.
+The second argument is the TCP port name, slave addre is next and is set to 0.
+Modbus function is next (1, 2, 3, 4, 5, 6, 15, or 16).
+Next is start address for the Modbus data segment followed by modbus data length
+in turn followed by Modbus data type.  I use 0 for the data type,
+which stands for binary, twos-complement format.
+Next is poll period in ms, and the last is some name which is used in print
+statements only.
+
+The first six Modbus segment specified in the example above are used to read and
+modify contents of some registers in the BK9000 coupler.  The reason I have
+created these segments is that only some of the registers in the total register
+address space of the coupler were interested to me.  See the Beckhoff document
+for the BK9000 coupler for details.  Keep it in mind that function code 3 is
+for reading 16bit words and function code 6 is for writing 16bit words.
+
+The data segment start and length need some explaining.  I am guessing that
+Beckhoff uses seperate buffers for devices accessed via different function
+codes.  Thus in the example above, the KL1512 input counter bus terminal is
+read with function code 3, its channel 0 address is 0 and Modbus segment is
+of length 4 16bit words.  Each channel consists of two words, the first has
+status byte followed by bits 8..15, which are not used, the second is a data
+word.  Similarly, the KL2408 8 bit digital output is written to with function
+code 5, its first address is 0 and the Modbus segment I assigned to it is of
+8 bits long.  Finally, KL1124 a four bit digital input is read with function
+code 2, its first bit is at address 0 and the segment is 4 bits long.
+
+The segment defined in the function call with the modbus port "..._1512_W"
+has a function code 6, which is write to a 16bit register, has a starting
+address of 0x800 and a segment length of 4 words.  This segment is used to
+read or write the KL1512 registers.  Again, there are two words per channel,
+the first is control byte in bits 0..7, with bits 8..15 not used, and the
+second is the data word.  The procedure for reading from or writing data to
+a register is described above.
+
+Detailed explanation of these functions can be found in the modbusDoc.html
+document, which is located in documents directory in the modbus support
+module.  Information on drvAsynIPPortConfigure function can be found in
+the asyn documentation in the asyn support module.
+
+Last modified on 5/28/2011, zms.

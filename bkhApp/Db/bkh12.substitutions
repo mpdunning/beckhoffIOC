@@ -1,0 +1,86 @@
+file analogTemp.db
+{
+pattern { N,ADDR,  DESC, MOD,  PORT, ESLO,PREC}
+	{ 1,   0,Chan01,3222, A3222, 0.01,   2}
+	{ 2,   1,Chan02,3222, A3222, 0.01,   2}
+	{ 3,   2,Chan03,3222, A3222, 0.01,   2}
+	{ 4,   3,Chan04,3222, A3222, 0.01,   2}
+	{ 5,   4,Chan05,3222, A3222, 0.01,   2}
+	{ 6,   5,Chan06,3222, A3222, 0.01,   2}
+}
+file analogIn.db
+{
+pattern { N,ADDR,  DESC,      MOD,  PORT, EGU,EOFF,       ESLO,PREC}
+        { 1,   0,Chan01,3162-$(M), A3162,   V,   0,0.000152588,   2}
+        { 2,   1,Chan02,3162-$(M), A3162,   V,   0,0.000152588,   2}
+}
+file analogTemp.db
+{
+pattern { N,ADDR,  DESC, MOD,  PORT, ESLO,PREC}
+        { 1,   0,Chan01,3314, A3314,  0.1,   2}
+        { 2,   1,Chan02,3314, A3314,  0.1,   2}
+        { 3,   2,Chan03,3314, A3314,  0.1,   2}
+        { 4,   3,Chan04,3314, A3314,  0.1,   2}
+        { 5,   4,Chan05,3314, A3314,  0.1,   2}
+        { 6,   5,Chan06,3314, A3314,  0.1,   2}
+        { 7,   6,Chan07,3314, A3314,  0.1,   2}
+        { 8,   7,Chan08,3314, A3314,  0.1,   2}
+        { 9,   8,Chan09,3314, A3314,  0.1,   2}
+        {10,   9,Chan10,3314, A3314,  0.1,   2}
+        {11,  10,Chan11,3314, A3314,  0.1,   2}
+        {12,  11,Chan12,3314, A3314,  0.1,   2}
+        {13,  12,Chan13,3314, A3314,  0.1,   2}
+        {14,  13,Chan14,3314, A3314,  0.1,   2}
+        {15,  14,Chan15,3314, A3314,  0.1,   2}
+        {16,  15,Chan16,3314, A3314,  0.1,   2}
+        {17,  16,Chan17,3314, A3314,  0.1,   2}
+        {18,  17,Chan18,3314, A3314,  0.1,   2}
+        {19,  18,Chan19,3314, A3314,  0.1,   2}
+        {20,  19,Chan20,3314, A3314,  0.1,   2}
+}
+file readwrite.db
+{
+pattern {       MOD,  PORT}
+	{ 3222-$(M), A3222}
+	{ 3162-$(M), A3162}
+	{ 3314-$(M), A3314}
+}
+file bkhAdrv.db
+{
+pattern {      MOD,  PORT}
+	{ 3222-$(M), A3222}
+	{ 3162-$(M), A3162}
+	{ 3314-$(M), A3314}
+}
+file bkhAErr.db
+{
+pattern {       MOD,  PORT}
+	{ 3222-$(M), A3222}
+	{ 3162-$(M), A3162}
+	{ 3314-$(M), A3314}
+}
+file b9000.db{
+        { RPORT=B900R, WPORT=B900W}
+}
+file b9000RRegs.db
+{
+pattern { N,                 DESC,  PORT}
+        {10,      "PLC Interface", B900R}
+        {11, "Bus Term Diagnossi", B900R}
+        {12, "Bus Coupler Status", B900R}
+        {16, "anlg output length", B900R}
+        {17, "anlg inputs length", B900R}
+        {18, "Outpt Image length", B900R}
+        {19, "Input Image length", B900R}
+        {32, "Watchdog curr time", B900R}
+}
+file b9000WRegs.db
+{
+pattern { N,                 DESC,  PORT}
+        { 0,      "PLC Interface", B900W}
+        { 1, "Bus Term Diagnossi", B900W}
+        {22,"Watchdog Tmout (ms)", B900W}
+        {23,     "Watchdog Reset", B900W}
+        {24,      "Watchdog type", B900W}
+        {25,    "Modbus TCP mode", B900W}
+}

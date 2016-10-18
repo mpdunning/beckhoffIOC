@@ -1,0 +1,105 @@
+drvBkhAMot::A2531C:resultCB: addr=8,pix=60
+drvBkhAMot::A2531C:resultCB: addr=15,pix=60
+drvBkhAMot::A2531C:resultCB: addr=18,pix=60
+drvBkhAMot::A2531C:resultCB: addr=26,pix=60
+drvBkhAMot::A2531C:resultCB:INITEND
+drvBkhAMot::A2531:resultCB:INITEND
+dbpf "ESB:AO:2531-15:CH1:SET:POS:MM.PROC" 1
+DBR_UCHAR:          1         0x1                 
+dbpf "ESB:AO:2531-15:CH1:SET:INC:MM.PROC" 1
+DBR_UCHAR:          1         0x1                 
+dbpf "ESB:AO:2541-15:CH1:SET:POS:MM.PROC" 1
+DBR_UCHAR:          1         0x1                 
+dbpf "ESB:AO:2541-15:CH1:SET:INC:MM.PROC" 1
+DBR_UCHAR:          1         0x1                 
+epics> drvBkhAMot::A2541B:resultCB: addr=2,pix=60
+2013/07/31 12:59:19.930 modbusAsyn::doModbusIO port BKH15 error calling writeRead, error=sioc-esb-bkh15:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0
+drvBkhAMot::A2541B:resultCB: failed status
+2013/07/31 12:59:19.999 modbusAsyn::doModbusIO, port BKH15 unsupported function code 1109405744
+drvBkhAMot::A2531:resultCB: failed status
+drvBkhAMot::A2541B:resultCB: addr=4,pix=60
+2013/07/31 12:59:20.102 modbusAsyn::doModbusIO, port BKH15 unsupported function code 1109405744
+drvBkhAMot::A2541B:resultCB: failed status
+drvBkhAMot::A2541B:resultCB: addr=31,pix=60
+drvBkhAMot::A2541B:resultCB:INITEND
+drvBkhAMot::A2541C:resultCB: addr=6,pix=60
+2013/07/31 12:59:20.255 modbusAsyn::doModbusIO, port BKH15 unsupported function code 1109405744
+drvBkhAMot::A2541C:resultCB: failed status
+drvBkhAMot::A2541C:resultCB: addr=8,pix=60
+2013/07/31 12:59:20.315 modbusAsyn::doModbusIO, port BKH15 unsupported function code 1109405744
+drvBkhAMot::A2541C:resultCB: failed status
+drvBkhAMot::A2541C:resultCB: addr=18,pix=60
+2013/07/31 12:59:20.383 modbusAsyn::doModbusIO, port BKH15 unsupported function code 1109405744
+drvBkhAMot::A2541C:resultCB: failed status
+2013/07/31 12:59:20.443 modbusAsyn::doModbusIO, port BKH15 unsupported function code 1109405744
+drvBkhAMot::A2541C:resultCB: failed status
+2013/07/31 12:59:20.511 modbusAsyn::doModbusIO, port BKH15 unsupported function code 1109405744
+drvBkhAMot::A2541C:resultCB: failed status
+2013/07/31 12:59:20.647 modbusAsyn::doModbusIO, port BKH15 unsupported function code 1109405744
+drvBkhAMot::A2541C:resultCB: failed status
+2013/07/31 12:59:20.715 modbusAsyn::doModbusIO, port BKH15 unsupported function code 1109405744
+drvBkhAMot::A2541C:resultCB: failed status
+drvBkhAMot::A2541C:resultCB:INITEND
+drvBkhAMot::A2541:resultCB:INITEND
+2013/07/31 12:59:32.735 modbusAsyn::doModbusIO port BKH15 error calling writeRead, error=sioc-esb-bkh15:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0
+drvBkhAMot::A2531:resultCB: failed status
+drvMBus::mbusMemIO:doModbusIO:six=0 failed, st=1
+2013/07/31 12:59:50.125 modbusAsyn::doModbusIO port BKH15 error calling writeRead, error=sioc-esb-bkh15:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0
+drvMBus::mbusMemIO:doModbusIO:six=0 failed, st=1
+2013/07/31 12:59:50.232 modbusAsyn::doModbusIO, port BKH15 unsupported function code 0
+drvBkhAMot::A2541:resultCB: failed status
+
+epics> 
+epics> 2013/07/31 13:00:47.916 modbusAsyn::doModbusIO port BKH15 error calling writeRead, error=sioc-esb-bkh15:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0
+drvMBus::mbusMemIO:doModbusIO:six=0 failed, st=1
+
+epics> 
+epics> 2013/07/31 13:01:06.316 modbusAsyn::doModbusIO port BKH15 error calling writeRead, error=sioc-esb-bkh15:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0
+drvMBus::mbusMemIO:doModbusIO:six=0 failed, st=1
+
+epics> 
+epics> 2013/07/31 13:01:11.719 modbusAsyn::doModbusIO port BKH15 error calling writeRead, error=sioc-esb-bkh15:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0
+drvBkhAMot::A2541:resultCB: failed status
+drvMBus::mbusMemIO:doModbusIO:six=0 failed, st=1
+
+epics> 
+epics> 2013/07/31 13:01:43.518 modbusAsyn::doModbusIO port BKH15 error calling writeRead, error=sioc-esb-bkh15:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0
+drvMBus::mbusMemIO:doModbusIO:six=0 failed, st=1
+2013/07/31 13:01:50.720 modbusAsyn::doModbusIO port BKH15 error calling writeRead, error=sioc-esb-bkh15:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0
+drvMBus::mbusMemIO:doModbusIO:six=0 failed, st=1
+
+epics> 
+epics> 2013/07/31 13:02:00.115 modbusAsyn::doModbusIO port BKH15 error calling writeRead, error=sioc-esb-bkh15:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0
+drvBkhAMot::A2541:resultCB: failed status
+drvMBus::mbusMemIO:doModbusIO:six=0 failed, st=1
+
+epics> 
+epics> 2013/07/31 13:02:06.720 modbusAsyn::doModbusIO port BKH15 error calling writeRead, error=sioc-esb-bkh15:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0
+drvBkhAMot::A2531:resultCB: failed status
+drvMBus::mbusMemIO:doModbusIO:six=0 failed, st=1
+
+epics> 
+epics> 2013/07/31 13:02:43.323 modbusAsyn::doModbusIO port BKH15 error calling writeRead, error=sioc-esb-bkh15:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0
+drvBkhAMot::A2541:resultCB: failed status
+drvMBus::mbusMemIO:doModbusIO:six=0 failed, st=1
+
+epics> 
+epics> e2013/07/31 13:02:46.720 modbusAsyn::doModbusIO port BKH15 error calling writeRead, error=sioc-esb-bkh15:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0
+drvMBus::mbusMemIO:doModbusIO:six=0 failed, st=1
+xit
+drvBkhAsyn::A3162:exitHndl: Clear ID
+drvBkhAsyn::A4032:exitHndl: Clear ID
+drvBkhAMot::A2541C:exitHndl: Clear ID
+drvBkhAsyn::A2541C:exitHndl: Clear ID
+drvBkhAMot::A2541B:exitHndl: Clear ID
+drvBkhAsyn::A2541B:exitHndl: Clear ID
+drvBkhAMot::A2541:exitHndl: Clear ID
+drvBkhAsyn::A2541:exitHndl: Clear ID
+drvBkhAMot::A2531C:exitHndl: Clear ID
+drvBkhAsyn::A2531C:exitHndl: Clear ID
+drvBkhAMot::A2531B:exitHndl: Clear ID
+drvBkhAsyn::A2531B:exitHndl: Clear ID
+drvBkhAMot::A2531:exitHndl: Clear ID
+drvBkhAsyn::A2531:exitHndl: Clear ID
+zms@ar-gonzo $ 
+

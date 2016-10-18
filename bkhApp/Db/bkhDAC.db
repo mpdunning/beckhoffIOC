@@ -1,0 +1,51 @@
+# This template is for an analog output device (DAC).
+#----------------------------------------------------------
+record( longin, "$(P):LI:$(MOD):SBYTE$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_SBYTE")
+  field( SCAN, "I/O Intr")
+# field( PINI, "YES")
+}
+record( ao, "$(P):AO:$(MOD):CH$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "Raw Soft Channel")
+  field( EGU,  "$(EGU)")
+  field( LINR, "SLOPE")
+  field( ESLO, "$(ESLO)")
+  field( EOFF, "$(EOFF)")
+  field( PINI, "YES")
+  field( PREC, "$(PREC)")
+  field( FLNK, "$(P):LO:$(MOD):CH$(N)")
+}
+record( longout, "$(P):LO:$(MOD):CH$(N)"){
+  field( DTYP, "asynInt32")
+  field( SDIS, "$(P):AO:$(MOD):CH$(N):Sync.PACT")
+  field( DISV, "1")
+  field( DOL,  "$(P):AO:$(MOD):CH$(N).RVAL NPP")
+  field( OMSL, "closed_loop")
+  field( OUT,  "@asyn($(PORT) $(ADDR) 1)LO_DATAOUT")
+}
+record( longin, "$(P):LI:$(MOD):CH$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_DATAOUT")
+  field( PINI, "YES")
+  field( FLNK, "$(P):CALC:$(MOD):CONV:CH$(N)")
+}
+record( calc, "$(P):CALC:$(MOD):CONV:CH$(N)"){
+  field( DESC, "$(DESC)")
+  field( CALC, "C+A*B")
+  field( INPA, "$(P):LI:$(MOD):CH$(N)")
+  field( INPB, "$(P):AO:$(MOD):CH$(N).ESLO")
+  field( INPC, "$(P):AO:$(MOD):CH$(N).EOFF")
+  field( PREC, "$(PREC)")
+  field( FLNK, "$(P):AO:$(MOD):CH$(N):Sync")
+}
+record( ao, "$(P):AO:$(MOD):CH$(N):Sync"){
+  field( DOL,  "$(P):CALC:$(MOD):CONV:CH$(N) NPP")
+  field( OMSL, "closed_loop")
+  field( OUT,  "$(P):AO:$(MOD):CH$(N) PP")
+}
+

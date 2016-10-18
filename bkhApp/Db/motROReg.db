@@ -1,0 +1,10 @@
+# motROReg.db
+# Template file for read only hidden register.
+#--------------------------------------------------------------------
+record( longin, "$(P):LI:$(MOD):RO:$(ITEM)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_$(USER)")
+#  field( PINI, "YES")
+}

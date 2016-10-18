@@ -1,0 +1,20 @@
+file ../bkhMot.req P=$(P),MOT=2531,M=$(M)
+file ../bkhMot.req P=$(P),MOT=2541,M=$(M)
+file ../bkhAnalI.req P=$(P),MOD=3314C-$(M),N=1
+file ../bkhAnalI.req P=$(P),MOD=3314C-$(M),N=2
+file ../bkhAnalI.req P=$(P),MOD=3314C-$(M),N=3
+file ../bkhAnalI.req P=$(P),MOD=3314C-$(M),N=4
+
+$(P):AI:3172-$(M):CH1.DESC
+$(P):AO:3172-$(M):CH1:A
+$(P):AO:3172-$(M):CH1:B
+
+$(P):AI:3172-$(M):CH2.DESC
+$(P):AO:3172-$(M):CH2:A
+$(P):AO:3172-$(M):CH2:B
+
+$(P):AO:4001-$(M):CH1.DESC
+$(P):AO:4001-$(M):CH1
+
+$(P):AO:4001-$(M):CH2.DESC
+$(P):AO:4001-$(M):CH2

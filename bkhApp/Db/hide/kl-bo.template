@@ -1,0 +1,7 @@
+record( bo, "$(P):BO:$(MOD):BIT$(N)"){
+  field( DESC, "$(MOD) BIT$(N):")
+  field( DTYP, "asynUInt32Digital")
+  field( OUT,  "@asynMask($(PORT) $(OFF) 0x1)")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+}

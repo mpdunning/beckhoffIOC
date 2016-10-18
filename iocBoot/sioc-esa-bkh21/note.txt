@@ -1,0 +1,6 @@
+BK9000 + KL2541 + KL2531 + KL3172 + KL4001 + KL9000
+KL2541 - 1 channel stepper motor controller, 5A max
+kl2531 - 1 channel stepper motor controller, 1.5A max
+KL3172 - 2 channel 16bit 0..2V ADC, 140 ms conversion time,
+KL4001 - 1 channel analog output, 0..10V, 12bits.
+KL9010 - terminator

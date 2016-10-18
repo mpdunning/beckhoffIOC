@@ -1,0 +1,12 @@
+BK9000 + KL3408 + KL1104 + KL2408 + KL9190 + KL1124 + KL2124 + KL3314 + KL9000
+KL3408 - 8 channel 12bit +-10V ADC, 2 ms conversion time,
+KL3132 - 2 channel 16bit +-10V ADC, 140 ms conversion time,
+KL3314 - 4 channel Thermocouple unit, 0.1 dC/digit, 200 ms conversion time,
+KL3064 - 4 channel 12bit 0..+10V ADC, 4 ms conversion time.
++-------------------------------------------------------------
+KL1104 - 4 channel digital in 24V
+kl2408 - 8 channel digital out 24V
+KL1408 - 8 channel digital in 24V reference is 0V for all channels
+KL1498 - 8 channel digital in 24V reference is 24V for all channels
+KL9010 - terminator
++-------------------------

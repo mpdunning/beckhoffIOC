@@ -1,0 +1,68 @@
+# This template is for an analog output device (DAC).
+#----------------------------------------------------------
+record( longin, "$(P):LI:$(MOD):SBYTE$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_SBYTE")
+  field( SCAN, "I/O Intr")
+  field( PINI, "YES")
+}
+record( ao, "$(P):AO:$(MOD):PC:CH$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "Soft Channel")
+  field( EGU,  "%")
+  field( LOPR, "0")
+  field( HOPR, "100")
+  field( PREC, "0")
+  field( FLNK, "$(P):CALC:$(MOD):MA:CH$(N)")
+  field( PINI, "YES")
+}
+record( calc, "$(P):CALC:$(MOD):MA:CH$(N)"){
+  field( DESC, "% to I(mA)")
+  field( CALC, "A*0.2")
+  field( EGU,  "mA")
+  field( PREC, "$(PREC)")
+  field( INPA, "$(P):AO:$(MOD):PC:CH$(N)")
+  field( FLNK, "$(P):CALC:$(MOD):RAW:CH$(N)")
+}
+record( calc, "$(P):CALC:$(MOD):RAW:CH$(N)"){
+  field( DESC, "mA to raw")
+  field( CALC, "A*1638.35")
+  field( EGU,  "raw")
+  field( INPA, "$(P):CALC:$(MOD):MA:CH$(N)")
+  field( FLNK, "$(P):LO:SC:$(MOD):RAW:CH$(N)")
+}
+record( longout, "$(P):LO:SC:$(MOD):RAW:CH$(N)"){
+  field( DOL,  "$(P):CALC:$(MOD):RAW:CH$(N) NPP")
+  field( DISV, "1")
+  field( SDIS, "$(P):AO:$(MOD):PC:CH$(N):Sync.PACT")
+  field( OMSL, "closed_loop")
+  field( OUT,  "$(P):LO:$(MOD):CH$(N) PP")
+}
+record( longout, "$(P):LO:$(MOD):CH$(N)"){
+  field( SDIS, "$(P):AO:$(MOD):CH$(N):Sync.PACT")
+  field( DISV, "1")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT) $(ADDR) 1)LO_DATAOUT")
+}
+record( longin, "$(P):LI:$(MOD):CH$(N)"){
+  field( DTYP, "asynInt32")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_DATAOUT")
+  field( SCAN, "I/O Intr")
+  field( FLNK, "$(P):CALC:$(MOD):PC:CH$(N)")
+  field( PINI, "YES")
+}
+record( calc,"$(P):CALC:$(MOD):PC:CH$(N)"){
+  field( DESC, "Raw to %")
+  field( CALC, "A*0.003051851")
+  field( EGU,  "%")
+  field( PREC, "$(PREC)")
+  field( INPA, "$(P):LI:$(MOD):CH$(N)")
+  field( FLNK, "$(P):AO:$(MOD):PC:CH$(N):Sync")
+}
+record( ao, "$(P):AO:$(MOD):PC:CH$(N):Sync"){
+  field( DOL,  "$(P):CALC:$(MOD):PC:CH$(N) NPP")
+  field( OMSL, "closed_loop")
+  field( OUT,  "$(P):AO:$(MOD):PC:CH$(N) PP")
+}
+

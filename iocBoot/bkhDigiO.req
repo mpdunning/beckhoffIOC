@@ -1,0 +1,2 @@
+$(P):BO:SC:$(MOD):BIT$(N).DESC
+$(P):BO:SC:$(MOD):BIT$(N).VAL

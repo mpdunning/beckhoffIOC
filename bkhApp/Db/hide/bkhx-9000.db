@@ -1,0 +1,19 @@
+record( waveform, "$(P):WF:BKH$(M):MID"){
+  field( DESC, "BKH$(M) Identifier:")
+  field( DTYP, "asynInt32ArrayIn")
+  field( INP,  "@asyn(BKH$(M)_R0,0x0,1000)MODBUS_DATA")
+  field( SCAN, "I/O Intr")
+  field( NELM, "7")
+  field( FTVL, "ULONG")
+  field( FLNK, "$(P):ASUB:BKH$(M):MID PP")
+}
+record( aSub, "$(P):ASUB:BKH$(M):MID"){
+  field( DESC, "BKH$(M) Identifier:")
+  field( INAM, "bkhInit")
+  field( SNAM, "bkhConvert")
+  field( INPA, "$(P):WF:BKH$(M):MID")
+  field( FTA,  "ULONG")
+  field( NOA,  "7")
+  field( FTVA, "CHAR")
+  field( NOVA, "16")
+}

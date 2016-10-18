@@ -1,0 +1,29 @@
+# This template is for an analog device.
+#----------------------------------------------------------
+record( longin, "$(P):LI:$(MOD):SB$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynUInt32Digital")
+  field( INP,  "@asynMask($(PORT) $(OFF1) 0xffff)")
+  field( SCAN, "I/O Intr")
+}
+record( ai, "$(P):AI:$(MOD):CH$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( INP,  "@asynMask($(PORT) $(OFF2) $(NBITS))")
+  field( LINR, "LINEAR")
+  field( EGU,  "$(EGU)")
+  field( EGUL, "$(EGUL)")
+  field( EGUF, "$(EGUF)")
+  field( HOPR, "$(HOPR)")
+  field( LOPR, "$(LOPR)")
+  field( HIHI, "$(HIHI)")
+  field( HIGH, "$(HIGH)")
+  field( LOW,  "$(LOW)")
+  field( LOLO, "$(LOLO)")
+  field( HHSV, "$(HHSV)")
+  field( HSV,  "$(HSV)")
+  field( LSV,  "$(LSV)")
+  field( LLSV, "$(LLSV)")
+  field( PREC, "$(PREC)")
+  field( SCAN, "I/O Intr")
+}

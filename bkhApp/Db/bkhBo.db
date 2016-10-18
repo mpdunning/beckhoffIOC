@@ -1,0 +1,33 @@
+record( bo, "$(P):BO:SC:$(MOD):BIT$(N)"){
+  alias( "$(P):BO:$(MOD):BIT$(N)")
+  field( DESC, "$(MOD) BIT$(N):")
+  field( OUT,  "$(P):BO:HC:$(MOD):BIT$(N) PP")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+}
+record( bo, "$(P):BO:HC:$(MOD):BIT$(N)"){
+  field( SDIS, "$(P):BO:$(MOD):BIT$(N):Sync.PACT")
+  field( DISV, "1")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT),$(OFF),1)BO_BVAL")
+# field( TPRO, "1")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+}
+record( bi, "$(P):BI:$(MOD):BIT$(N)"){
+  field( DTYP, "asynInt32")
+  field( INP,  "@asyn($(PORT),$(OFF),1)BI_BVAL")
+  field( SCAN, "I/O Intr")
+# field( TPRO, "1")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+  field( FLNK, "$(P):BO:$(MOD):BIT$(N):Sync")
+  field( PINI, "YES")
+}
+record( bo, "$(P):BO:$(MOD):BIT$(N):Sync"){
+  field( DOL,  "$(P):BI:$(MOD):BIT$(N) NPP")
+  field( OMSL, "closed_loop")
+  field( OUT,  "$(P):BO:SC:$(MOD):BIT$(N) PP")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+}

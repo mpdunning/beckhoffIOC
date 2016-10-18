@@ -1,0 +1,23 @@
+record( longout, "$(P):LO:SC:900W-$(M):REG$(N)"){
+  field( DESC, "$(DESC):")
+  field( OUT,  "$(P):LO:900W-$(M):REG$(N) PP")
+}
+record( longout, "$(P):LO:900W-$(M):REG$(N)"){
+  field( SDIS, "$(P):LO:900W-$(M):REG$(N):Sync.PACT")
+  field( DISV, "1")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT) $(N) 1)LO_CREG")
+}
+record( longin, "$(P):LI:900W-$(M):REG$(N)"){
+  field( DTYP, "asynInt32")
+  field( INP,  "@asyn($(PORT),$(N),1)LI_CREG")
+  field( SCAN, "I/O Intr")
+  field( FLNK, "$(P):LO:900W-$(M):REG$(N):Sync")
+  field( PINI, "YES")
+}
+record( longout, "$(P):LO:900W-$(M):REG$(N):Sync"){
+  field( DOL,  "$(P):LI:900W-$(M):REG$(N) NPP")
+  field( OMSL, "closed_loop")
+  field( OUT,  "$(P):LO:SC:900W-$(M):REG$(N) PP")
+}
+

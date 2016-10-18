@@ -1,0 +1,16 @@
+file ../bkhMot.req P=$(P),MOT=2531,M=$(M)
+file ../bkhMot.req P=$(P),MOT=2541,M=$(M)
+
+$(P):AI:3162-$(M):CH1.DESC
+$(P):AO:3162-$(M):CH1:A
+$(P):AO:3162-$(M):CH1:B
+
+$(P):AI:3162-$(M):CH2.DESC
+$(P):AO:3162-$(M):CH2:A
+$(P):AO:3162-$(M):CH2:B
+
+$(P):AO:4032-$(M):CH1.DESC
+$(P):AO:4032-$(M):CH1
+
+$(P):AO:4032-$(M):CH2.DESC
+$(P):AO:4032-$(M):CH2

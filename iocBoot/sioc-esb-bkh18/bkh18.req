@@ -1,0 +1,25 @@
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=1
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=2
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=3
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=4
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=5
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=6
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=7
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=8
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=9
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=10
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=11
+file ../bkhDigiO.req P=$(P),MOD=2114-$(M),N=12
+ESB:AO:4132-18:CH1
+ESB:AO:4132-18:CH2
+ESB:AO:4132-18:CH1.DESC
+ESB:AO:4132-18:CH2.DESC
+ESB:AI:3162-18:CH1.DESC
+ESB:AI:3162-18:CH2.DESC
+ESB:AO:3162-18:CH1:B
+ESB:AO:3162-18:CH1:A
+ESB:AO:3162-18:CH2:B
+ESB:AO:3162-18:CH2:A
+ESB:CALC:3162-18:CH1.EGU
+ESB:CALC:3162-18:CH2.EGU
+

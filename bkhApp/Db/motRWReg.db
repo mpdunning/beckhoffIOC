@@ -1,0 +1,28 @@
+# motRWReg.db
+# template for read/write RAM and EEPROM registers.
+# Writing to RAM registers is done without writing special access code to
+# register number 31.
+#----------------------------------------------------------------------------
+record( longout, "$(P):LO:SC:$(MOD):RW$(R):$(ITEM)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "Soft Channel")
+  field( OUT,  "$(P):LO:$(MOD):RW$(R):$(ITEM) PP")
+}
+record( longout, "$(P):LO:$(MOD):RW$(R):$(ITEM)"){
+  field( SDIS, "$(P):LO:$(MOD):RW$(R):$(ITEM):Sync.PACT")
+  field( DISV, "1")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT),$(ADDR),1)LO_$(USER)")
+}
+record( longin, "$(P):LI:$(MOD):RW$(R):$(ITEM)"){
+  field( DTYP, "asynInt32")
+  field( INP,  "@asyn($(PORT),$(ADDR),1)LI_$(USER)")
+  field( SCAN, "I/O Intr")
+  field( FLNK, "$(P):LO:$(MOD):RW$(R):$(ITEM):Sync")
+#  field( PINI, "YES")
+}
+record( longout, "$(P):LO:$(MOD):RW$(R):$(ITEM):Sync"){
+  field( DOL,  "$(P):LI:$(MOD):RW$(R):$(ITEM) NPP")
+  field( OMSL, "closed_loop")
+  field( OUT,  "$(P):LO:SC:$(MOD):RW$(R):$(ITEM) PP")
+}

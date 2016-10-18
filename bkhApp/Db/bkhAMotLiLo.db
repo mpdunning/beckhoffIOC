@@ -1,0 +1,23 @@
+#---- $(DESC) -----------------------------------
+record( longout, "$(P):LO:SC:$(MOD):$(ITEM)"){
+  field( DESC, "$(DESC):")
+  field( OUT,  "$(P):LO:$(MOD):$(ITEM) PP")
+}
+record( longout, "$(P):LO:$(MOD):$(ITEM)"){
+  field( SDIS, "$(P):LO:$(MOD):$(ITEM):Sync.PACT")
+  field( DISV, "1")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT),0,1)LO_$(USER)")
+}
+record( longin, "$(P):LI:$(MOD):$(ITEM)"){
+  field( DTYP, "asynInt32")
+  field( INP,  "@asyn($(PORT),0,1)LI_$(USER)")
+  field( SCAN, "I/O Intr")
+  field( FLNK, "$(P):LO:$(MOD):$(ITEM):Sync")
+  field( PINI, "YES")
+}
+record( longout, "$(P):LO:$(MOD):$(ITEM):Sync"){
+  field( DOL,  "$(P):LI:$(MOD):$(ITEM) NPP")
+  field( OMSL, "closed_loop")
+  field( OUT,  "$(P):LO:SC:$(MOD):$(ITEM) PP")
+}

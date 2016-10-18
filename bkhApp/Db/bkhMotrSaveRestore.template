@@ -1,0 +1,13 @@
+record( ai,"$(P):BKH$(N):m$(M):SAVED1"){
+  field( DESC, "saved position")
+  field( PREC, "$(PREC)")
+  field( INP,  "$(P):CALC:2531-$(M)-$(N):POS:MM")
+}
+record( calcout,"$(P):BKH$(N):m$(M):RESTORE1"){
+  field( DESC, "restore position")
+  field( PREC, "$(PREC)")
+  field( INPA, "$(P):BKH$(N):m$(M):SAVED1.VAL")
+  field( CALC, "A")
+  field( OUT,  "$(P):CALC:2531-$(M)-$(N):POS:MM.VAL")
+  field( FLNK, "$(P):CALC:2531-$(M)-$(N):POS:MM.PROC")
+}

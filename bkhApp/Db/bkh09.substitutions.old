@@ -1,0 +1,48 @@
+file bkhAdrv.db
+{
+pattern {      MOD,   PORT}
+        {1104-$(M),  A1104}
+        {2114-$(M),  A2408}
+}
+#file kl-bi.template
+file bkhBi.template
+{
+pattern { MOD,       PORT,          OFF, N}
+        { 1104-$(M), BKH$(M)_1104,  0,   1}
+        { 1104-$(M), BKH$(M)_1104,  1,   2}
+        { 1104-$(M), BKH$(M)_1104,  2,   3}
+        { 1104-$(M), BKH$(M)_1104,  3,   4}
+}
+file bkhBo.template
+{
+pattern { MOD,       PORT,          OFF, N}
+        { 2114-$(M), BKH$(M)_2114,  0,   1}
+        { 2114-$(M), BKH$(M)_2114,  1,   2}
+        { 2114-$(M), BKH$(M)_2114,  2,   3}
+        { 2114-$(M), BKH$(M)_2114,  3,   4}
+}
+file b9000.db{
+        { RPORT=B900R, WPORT=B900W}
+}
+file b9000RRegs.db
+{
+pattern { N,                 DESC,  PORT}
+        {10,      "PLC Interface", B900R}
+        {11, "Bus Term Diagnossi", B900R}
+        {12, "Bus Coupler Status", B900R}
+        {16, "anlg output length", B900R}
+        {17, "anlg inputs length", B900R}
+        {18, "Outpt Image length", B900R}
+        {19, "Input Image length", B900R}
+        {32, "Watchdog curr time", B900R}
+}
+file b9000WRegs.db
+{
+pattern { N,                 DESC,  PORT}
+        { 0,      "PLC Interface", B900W}
+        { 1, "Bus Term Diagnossi", B900W}
+        {22,"Watchdog Tmout (ms)", B900W}
+        {23,     "Watchdog Reset", B900W}
+        {24,      "Watchdog type", B900W}
+        {25,    "Modbus TCP mode", B900W}
+}

@@ -1,0 +1,5 @@
+BK9000 + KL3404 + 3xKL4414 + KL2408 + KL9000
+KL3404 - 4 channel 12bit +-10V ADC, 2 ms conversion time,
+KL4414 - 4 channel analog out, 0 - 20mA
+KL2408 - 8 bit digital out, 24V, 0.3A max/chan.
+KL9010 - terminator

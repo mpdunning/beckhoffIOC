@@ -1,0 +1,145 @@
+record( stringin, "$(P):SI:900R-$(M):NAME"){
+  field( DESC, "$(IOC)")
+  field( VAL,  "$(LOC)")
+}
+record( stringin, "$(P):SI:900R-$(M):MID"){
+  field( DESC, "Identifier:")
+  field( DTYP, "asynOctetRead")
+  field( INP,  "@asyn($(RPORT),0,1)SI_MID")
+  field( SCAN, "I/O Intr")
+}
+record( bo, "$(P):BO:900W-$(M):WD:RESET"){
+  field( DESC, "Reset:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(WPORT),0,1)BO_WDRST")
+  field( HIGH, "0.1")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+  field( VAL,  "0")
+}
+record( bo, "$(P):BO:900R-$(M):INIT"){
+  field( DESC, "Init:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(RPORT),0,1)BO_INIT")
+  field( HIGH, "0.1")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+  field( VAL,  "0")
+}
+record( bo, "$(P):BO:900R-$(M):REFRESH"){
+  field( DESC, "Refresh:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(RPORT),0,1)BO_REFRESH")
+  field( HIGH, "0.1")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+  field( VAL,  "0")
+}
+record( longout, "$(P):LO:DEBUG-$(M):MADDR"){
+  field( DESC, "Mem Addr:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn(DEBUG,0,1)LO_MADDR")
+  field( VAL,  "0")
+  field( PINI, "YES")
+}
+record( longout, "$(P):LO:DEBUG-$(M):MFUNC"){
+  field( DESC, "Modbus Func:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn(DEBUG,0,1)LO_MFUNC")
+  field( VAL,  "3")
+  field( PINI, "YES")
+}
+record( longout, "$(P):LO:DEBUG-$(M):MVAL"){
+  field( DESC, "Mem Value:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn(DEBUG,0,1)LO_MVAL")
+}
+record( longout, "$(P):LI:DEBUG-$(M):MVAL"){
+  field( DESC, "RBV:")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( OUT,  "@asyn(DEBUG,0,1)LI_MVAL")
+}
+record( bo, "$(P):BO:DEBUG-$(M):GET:MEM"){
+  field( DESC, "Get:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn(DEBUG,0,1)BO_MGET")
+# field( HIGH, "0.1")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+  field( VAL,  "0")
+}
+record( bo, "$(P):BO:DEBUG-$(M):PUT:MEM"){
+  field( DESC, "Put:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn(DEBUG,0,1)BO_MPUT")
+  field( HIGH, "0.1")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+  field( VAL,  "0")
+}
+record( bo, "$(P):BO:DEBUG-$(M):EN:HIST"){
+  field( DESC, "Enable:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn(DEBUG,0,1)BO_THIST")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+  field( VAL,  "0")
+}
+record( bo, "$(P):BO:DEBUG-$(M):GET:HIST"){
+  field( DESC, "Get:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn(DEBUG,0,1)BO_GETHIST")
+  field( HIGH, "0.1")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+  field( VAL,  "0")
+}
+record( bo, "$(P):BO:DEBUG-$(M):CLR:HIST"){
+  field( DESC, "Clear:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn(DEBUG,0,1)BO_CLRHIST")
+  field( HIGH, "0.1")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+  field( VAL,  "0")
+}
+record( waveform, "$(P):WF:DEBUG-$(M):TIME:HIST"){
+  field( DESC, "Time Histo")
+  field( DTYP, "asynInt32ArrayIn")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn(DEBUG,0,1)WF_THIST")
+  field( FTVL, "LONG")
+  field( NELM, "200")
+}
+#--- Next 4 records are used to control how many messages
+#--- are allowed in the low priority message queue (in drvMBus) ----
+record( longout, "$(P):LO:SC:DEBUG-$(M):ALLOW:INLQ"){
+  field( DESC, "Allow In Low Prio Q")
+  field( OUT,  "$(P):LO:DEBUG-$(M):ALLOW:INLQ PP")
+}
+record( longout, "$(P):LO:DEBUG-$(M):ALLOW:INLQ"){
+  field( SDIS, "$(P):LO:DEBUG-$(M):ALLOW:INLQ:Sync.PACT")
+  field( DISV, "1")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn(DEBUG,0,1)LO_ALLOWINLQ")
+}
+record( longin, "$(P):LI:DEBUG-$(M):ALLOW:INLQ"){
+  field( DTYP, "asynInt32")
+  field( INP,  "@asyn(DEBUG,0,1)LI_ALLOWINLQ")
+  field( SCAN, "I/O Intr")
+  field( FLNK, "$(P):LO:DEBUG-$(M):ALLOW:INLQ:Sync")
+  field( PINI, "YES")
+}
+record( longout, "$(P):LO:DEBUG-$(M):ALLOW:INLQ:Sync"){
+  field( DOL,  "$(P):LI:DEBUG-$(M):ALLOW:INLQ NPP")
+  field( OMSL, "closed_loop")
+  field( OUT,  "$(P):LO:SC:DEBUG-$(M):ALLOW:INLQ PP")
+}
+#-- an error flag for "Resource unavailable..." -----------------
+record( bi, "$(P):BI:9000-$(M):ERROR"){
+  field( DESC, "Error flag:")
+  field( ZNAM, "noError")
+  field( ONAM, "Error")
+}
+

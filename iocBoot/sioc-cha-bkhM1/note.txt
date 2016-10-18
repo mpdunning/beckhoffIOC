@@ -1,0 +1,3 @@
+BK9000 + KL2531 + KL9000
+kl2531 - 1 channel stepper motor controller, 1.5A max
+KL9010 - terminator

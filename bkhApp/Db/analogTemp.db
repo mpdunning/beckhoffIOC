@@ -1,0 +1,38 @@
+# This template is for an analog temperature device.
+#----------------------------------------------------------
+record( longin, "$(P):LI:$(MOD)-$(M):SBYTE$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_SBYTE")
+# field( PINI, "YES")
+}
+record( longin, "$(P):LI:$(MOD)-$(M):DATA$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_DATA")
+# field( PINI, "YES")
+  field( FLNK, "$(P):AI:$(MOD)C-$(M):CH$(N)")
+}
+record( ai, "$(P):AI:$(MOD)C-$(M):CH$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "Raw Soft Channel")
+  field( INP,  "$(P):LI:$(MOD)-$(M):DATA$(N)")
+  field( LINR, "SLOPE")
+  field( EGU,  "C")
+  field( ESLO, "$(ESLO)")
+  field( PREC, "$(PREC)")
+  field( FLNK, "$(P):AI:$(MOD)F-$(M):CH$(N)")
+}
+record( ai, "$(P):AI:$(MOD)F-$(M):CH$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "Raw Soft Channel")
+  field( INP,  "$(P):LI:$(MOD)-$(M):DATA$(N)")
+  field( LINR, "SLOPE")
+  field( EGU,  "F")
+  field( ESLO, "0.18")
+  field( EOFF, "32")
+  field( PREC, "$(PREC)")
+}
+

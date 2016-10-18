@@ -1,0 +1,25 @@
+# This template is for an analog device.
+#----------------------------------------------------------
+record( longin, "$(P):LI:$(MOD):SBYTE$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_SBYTE")
+}
+record( longin, "$(P):LI:$(MOD):DATA$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_DATA")
+  field( FLNK, "$(P):AI:$(MOD):CH$(N)")
+}
+record( ai, "$(P):AI:$(MOD):CH$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "Raw Soft Channel")
+  field( INP,  "$(P):LI:$(MOD):DATA$(N)")
+  field( LINR, "SLOPE")
+  field( EGU,  "$(EGU)")
+  field( ESLO, "$(ESLO)")
+  field( EOFF, "$(EOFF)")
+  field( PREC, "$(PREC)")
+}

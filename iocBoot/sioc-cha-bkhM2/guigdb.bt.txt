@@ -1,0 +1,65 @@
+(gdb) bt
+#0  0x0000003fd1c0e264 in __lll_lock_wait () from /lib64/libpthread.so.0
+#1  0x0000003fd1c09523 in _L_lock_892 () from /lib64/libpthread.so.0
+#2  0x0000003fd1c09407 in pthread_mutex_lock () from /lib64/libpthread.so.0
+#3  0x00007fb529267086 in mutexLock (pmutex=0x1438540)
+    at ../../../src/libCom/osi/os/posix/osdMutex.c:44
+#4  epicsMutexOsdLock (pmutex=0x1438540)
+    at ../../../src/libCom/osi/os/posix/osdMutex.c:116
+#5  0x00007fb5292608ac in epicsMutex::lock (this=<value optimized out>)
+    at ../../../src/libCom/osi/epicsMutex.cpp:236
+#6  0x00007fb5294cbdd0 in epicsGuard (pMon=0x7fb510003570)
+    at ../../../include/epicsGuard.h:71
+#7  CallbackGuard (pMon=0x7fb510003570) at ../cacIO.h:159
+#8  ca_clear_subscription (pMon=0x7fb510003570) at ../ca_client_context.cpp:781
+#9  0x00007fb52acdbb38 in caconnection::CaConnection::removeChannel (this=
+    0x1a69a20) at api/src/CaConnection.cpp:263
+#10 0x00007fb52acd86db in CaObjectPrivate::removeChannel (this=0x1a69960)
+    at api/src/CaObject.cpp:186
+#11 0x00007fb52ace136e in qcaobject::QCaObject::~QCaObject (this=0x1a69750, 
+    __in_chrg=<value optimized out>) at data/src/QCaObject.cpp:169
+#12 0x00007fb52ae2c842 in QEString::~QEString (this=0x1a69750, 
+    __in_chrg=<value optimized out>) at data/include/QEString.h:36
+#13 0x00007fb52ae2c880 in QEString::~QEString (this=0x1a69750, 
+    __in_chrg=<value optimized out>) at data/include/QEString.h:36
+#14 0x00007fb52acf6a5b in QEWidget::deleteQcaItem (this=0x1a0db48, 
+    variableIndex=0, disconnect=false) at widgets/src/QEWidget.cpp:286
+#15 0x00007fb52acf6851 in QEWidget::createConnection (this=0x1a0db48, 
+    variableIndex=0) at widgets/src/QEWidget.cpp:201
+#16 0x00007fb52ad85cd9 in QELabel::establishConnection (this=0x1a0db20, 
+    variableIndex=0) at widgets/QELabel/QELabel.cpp:98
+#17 0x00007fb52acf67a5 in QEWidget::activate (this=0x1a0db48)
+    at widgets/src/QEWidget.cpp:168
+#18 0x00007fb52ad3d7a4 in QEForm::readUiFile (this=0x1eed390)
+    at widgets/QEForm/QEForm.cpp:395
+#19 0x00007fb52ad3c938 in QEForm::reloadLater (this=0x1eed390)
+    at widgets/QEForm/QEForm.cpp:186
+#20 0x00007fb52ae42ca5 in QEForm::qt_static_metacall (_o=0x1eed390, _c=
+    QMetaObject::InvokeMetaMethod, _id=3, _a=0x1ef31a0) at moc_QEForm.cpp:79
+#21 0x00007fb5298a6a6e in QObject::event(QEvent*) ()
+   from /opt/qt/qt-4.8.5/lib/libQtCore.so.4
+#22 0x00007fb529e33c3c in QWidget::event(QEvent*) ()
+   from /opt/qt/qt-4.8.5/lib/libQtGui.so.4
+#23 0x00007fb529de8e5c in QApplicationPrivate::notify_helper(QObject*, QEvent*)
+    () from /opt/qt/qt-4.8.5/lib/libQtGui.so.4
+#24 0x00007fb529def0f1 in QApplication::notify(QObject*, QEvent*) ()
+   from /opt/qt/qt-4.8.5/lib/libQtGui.so.4
+#25 0x00007fb529895b0c in QCoreApplication::notifyInternal(QObject*, QEvent*)
+    () from /opt/qt/qt-4.8.5/lib/libQtCore.so.4
+#26 0x00007fb5298999a3 in QCoreApplicationPrivate::sendPostedEvents(QObject*, int, QThreadData*) () from /opt/qt/qt-4.8.5/lib/libQtCore.so.4
+#27 0x00007fb5298c1ca3 in postEventSourceDispatch(_GSource*, int (*)(void*), void*) () from /opt/qt/qt-4.8.5/lib/libQtCore.so.4
+#28 0x0000003fd2c3feb2 in g_main_context_dispatch ()
+   from /lib64/libglib-2.0.so.0
+#29 0x0000003fd2c43d68 in ?? () from /lib64/libglib-2.0.so.0
+#30 0x0000003fd2c43f1c in g_main_context_iteration ()
+---Type <return> to continue, or q <return> to quit---
+   from /lib64/libglib-2.0.so.0
+#31 0x00007fb5298c17e3 in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /opt/qt/qt-4.8.5/lib/libQtCore.so.4
+#32 0x00007fb529e8921e in QGuiEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /opt/qt/qt-4.8.5/lib/libQtGui.so.4
+#33 0x00007fb5298949a2 in QEventLoop::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /opt/qt/qt-4.8.5/lib/libQtCore.so.4
+#34 0x00007fb529894d04 in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /opt/qt/qt-4.8.5/lib/libQtCore.so.4
+#35 0x00007fb529899d49 in QCoreApplication::exec() ()
+   from /opt/qt/qt-4.8.5/lib/libQtCore.so.4
+#36 0x000000000040662a in main ()
+(gdb) 
+

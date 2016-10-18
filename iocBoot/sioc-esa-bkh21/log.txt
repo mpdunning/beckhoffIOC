@@ -1,0 +1,510 @@
+Script started on Tue Jun 25 20:18:31 2013
+unlimited
+host is rhel6
+/afs/slac/g/testfac/rhel6/epics/R3.14.12.2/modules
+ 
+zms@esaanal2 $ ./st.cmd
+bash: ./st.cmd: No such file or directory
+zms@esaanal2 $ ll
+total 135
+drwxr-xr-x 66 zms      ra 4096 Jun 23 08:27 [0m[01;34m.[0m/
+drwxr-xr-x  6 zms      ra 2048 Jan 18 12:16 [01;34m..[0m/
+-rw-------  1 zms      ra    0 Dec 15  2012 .__afsBDCA
+-rw-r--r--  1 zms      ra  120 Jun 23 08:27 C:\nppdf32Log\debuglog.txt
+drwxr-xr-x  5 zms      ra 2048 Jun 13  2012 [01;34maravis[0m/
+drwxrwxr-x  5 zms      ra 2048 Mar 11 11:04 [01;34mareaD[0m/
+drwxrwxr-x  8 zms      ra 2048 Mar 11 12:20 [01;34masyn[0m/
+drwxrwxr-x  5 zms      ra 2048 Nov 17  2012 [01;34mautosave[0m/
+drwxr-xr-x  6 zms      ra 2048 Jun 20 11:36 [01;34mbkhAsyn[0m/
+drwxrwxr-x  3 zms      ra 2048 May 18 21:40 [01;34mbkhMotorAsyn[0m/
+drwxrwxr-x  3 zms      ra 2048 Feb 25  2012 [01;34mbusy[0m/
+drwxrwxr-x  3 zms      ra 2048 Nov  1  2012 [01;34mcaPutLog[0m/
+drwxr-xr-x  3 zms      ra 2048 Sep 11  2012 [01;34mcaenV265[0m/
+drwxrwxr-x  3 zms      ra 2048 Apr 22  2012 [01;34mcaenV265-asyn[0m/
+drwxr-xr-x  3 zms      ra 2048 Aug 11  2012 [01;34mcaenV288[0m/
+drwxr-xr-x  3 zms      ra 2048 Jun 20  2012 [01;34mcaenV288-asyn[0m/
+drwxrwxr-x  4 zms      ra 2048 Jan 25 07:57 [01;34mcaenV792[0m/
+drwxrwxr-x  5 zms      ra 2048 Apr  8 08:33 [01;34mcaenV792-asyn[0m/
+drwxr-xr-x  5 zms      ra 2048 Sep 13  2012 [01;34mcaenV965[0m/
+drwxrwxr-x  3 zms      ra 2048 Apr 22  2012 [01;34mcaenV965-asyn[0m/
+drwxrwxr-x  3 zms      ra 2048 Feb 25  2012 [01;34mcalc[0m/
+drwxrwxr-x  3 zms      ra 2048 Aug 14  2012 [01;34mdevlib2[0m/
+drwxr-xr-x  3 zms      ra 2048 May 18  2012 [01;34mdg535[0m/
+drwxr-xr-x  3 mdunning ar 2048 Aug 21  2012 [01;34mether_ip[0m/
+drwxrwxr-x  5 zms      ra 2048 Mar 22 10:54 [01;34mevent[0m/
+drwxr-xr-x  3 zms      ra 2048 Nov 17  2012 [01;34mfff[0m/
+drwxrwxr-x  4 zms      ra 2048 Sep 24  2012 [01;34mgenesys[0m/
+drwxr-xr-x  3 jnelson  lc 2048 Jul  2  2012 [01;34miocAdmin[0m/
+drwxrwxr-x  3 zms      ra 2048 Apr 20  2012 [01;34mip231-asyn[0m/
+drwxr-xr-x  3 zms      ra 2048 Apr 20  2012 [01;34mip330-asyn[0m/
+drwxrwxr-x  3 zms      ra 2048 Apr 20  2012 [01;34mip440-asyn[0m/
+drwxrwxr-x  3 zms      ra 2048 Apr 20  2012 [01;34mip445-asyn[0m/
+drwxr-xr-x  4 zms      ra 2048 Jul  2  2012 [01;34mipac[0m/
+drwxrwxr-x  3 zms      ra 2048 Nov  1  2012 [01;34mmUtils[0m/
+drwxrwxr-x  2 zms      ra 2048 Nov  5  2012 [01;34mmagBKH[0m/
+drwxrwxr-x  4 zms      ra 2048 Feb  7 20:12 [01;34mmagPSC2[0m/
+drwxrwxr-x  2 zms      ra 2048 Nov  5  2012 [01;34mmagVME[0m/
+drwxrwxr-x  3 zms      ra 2048 Feb  6 13:04 [01;34mmagcam[0m/
+drwxrwxr-x  5 zms      ra 2048 Nov  7  2012 [01;34mmaggen[0m/
+drwxrwxr-x  6 zms      ra 2048 Feb  6 10:38 [01;34mmagmon[0m/
+drwxrwxr-x  3 zms      ra 2048 Apr 11  2012 [01;34mmbboBits[0m/
+drwxr-xr-x  5 zms      ra 2048 Jun 20 21:53 [01;34mmbusAsyn[0m/
+drwxrwxr-x  3 zms      ra 2048 Feb 25  2012 [01;34mmca[0m/
+drwxr-xr-x  6 zms      ra 2048 May 30 13:41 [01;34mmodbus[0m/
+drwxrwxr-x  4 zms      ra 2048 May 18 21:52 [01;34mmotor[0m/
+-rw-------  1 zms      ra    0 Jun 21 15:46 nohup.out
+drwxrwxr-x  2 zms      ra 2048 Mar  5  2012 [01;34mpico-asyn[0m/
+drwxrwxr-x  6 zms      ra 2048 Nov  1  2012 [01;34mseq[0m/
+drwxrwxr-x  3 zms      ra 2048 Jun 15  2012 [01;34msis-asyn[0m/
+drwxrwxr-x  5 zms      ra 2048 Aug 28  2012 [01;34msis3302[0m/
+drwxrwxr-x  3 zms      ra 2048 Jul 19  2012 [01;34msis3302-asyn[0m/
+drwxrwxr-x  3 zms      ra 2048 Sep  6  2012 [01;34msis3350-asyn[0m/
+drwxrwxr-x  3 zms      ra 2048 Feb 27 11:59 [01;34mslacfob-asyn[0m/
+drwxrwxr-x  3 zms      ra 2048 Feb 27 16:17 [01;34mslaciadc-asyn[0m/
+drwxrwxr-x  4 zms      ra 2048 Jan 15 09:54 [01;34msscan[0m/
+drwxrwxr-x  3 zms      ra 2048 Feb  1  2012 [01;34mstd[0m/
+drwxrwxr-x  4 zms      ra 2048 Jul  2  2012 [01;34mstream[0m/
+drwxr-xr-x  5 zms      ra 2048 Oct 10  2012 [01;34mtempl[0m/
+drwxr-xr-x  4 zms      ra 2048 Feb 28  2012 [01;34mtest[0m/
+drwxr-xr-x  3 zms      ra 2048 Dec  3  2012 [01;34mtimes[0m/
+drwxrwxr-x  3 zms      ra 2048 Apr 11  2012 [01;34mtimestamp[0m/
+drwxrwxr-x  4 zms      ra 2048 Jun  4 14:41 [01;34mtrash[0m/
+drwxrwxr-x  4 zms      ra 2048 Mar 29 08:51 [01;34mvmdis8004-asyn[0m/
+drwxrwxr-x  3 zms      ra 2048 Apr 23  2012 [01;34mvmic2534-asyn[0m/
+drwxr-xr-x  3 zms      ra 2048 Nov 17  2012 [01;34mvmic3122[0m/
+drwxrwxr-x  3 zms      ra 2048 Apr 23  2012 [01;34mvmic3122-asyn[0m/
+drwxr-xr-x  3 zms      ra 2048 Nov 17  2012 [01;34mvmic4132[0m/
+drwxrwxr-x  3 zms      ra 2048 Apr 23  2012 [01;34mvmic4132-asyn[0m/
+drwxrwxr-x  3 zms      ra 2048 Apr 22  2012 [01;34mvsam-asyn[0m/
+[mzms@esaanal2 $ ioctop
+zms@esaanal2 $ cd bkh9000A/new/iocBoot/sioc-esa-bkh23
+zms@esaanal2 $ ./st.cmd
+#!../../bin/linux-x86_64/bkh
+< envPaths
+epicsEnvSet("ARCH","linux-x86_64")
+epicsEnvSet("IOC","sioc-esa-bkh23")
+epicsEnvSet("TOP","/afs/slac.stanford.edu/g/testfac/vol1/rhel6/epics/R3.14.12.2/iocTop/bkh9000A/new")
+epicsEnvSet("ROOT","/afs/slac/g/testfac")
+epicsEnvSet("EPICS_SITE_TOP","/afs/slac/g/testfac/rhel6/epics/R3.14.12.2")
+epicsEnvSet("MODULES","/afs/slac/g/testfac/rhel6/epics/R3.14.12.2/modules")
+epicsEnvSet("AUTOSAVE","/afs/slac/g/testfac/rhel6/epics/R3.14.12.2/modules/autosave/R4.8")
+epicsEnvSet("ASYN","/afs/slac/g/testfac/rhel6/epics/R3.14.12.2/modules/asyn/R4.21")
+epicsEnvSet("MBUS","/afs/slac/g/testfac/rhel6/epics/R3.14.12.2/modules/mbusAsyn/new")
+epicsEnvSet("BKHA","/afs/slac/g/testfac/rhel6/epics/R3.14.12.2/modules/bkhAsyn/new")
+epicsEnvSet("EPICS_BASE","/afs/slac/g/testfac/rhel6/epics/R3.14.12.2/base")
+cd /afs/slac.stanford.edu/g/testfac/vol1/rhel6/epics/R3.14.12.2/iocTop/bkh9000A/new
+# BK9000 + KL3132 + KL9010
+dbLoadDatabase "dbd/bkh.dbd"
+bkh_registerRecordDeviceDriver pdbbase
+epicsEnvSet("N","23")
+#save_restoreSet_status_prefix( "")
+#save_restoreSet_IncompleteSetsOk( 1)
+#save_restoreSet_DatedBackupFiles( 1)
+#set_savefile_path( "/nfs/slac/g/testfac/esb/$(IOC)","autosave")
+#set_pass0_restoreFile( "bkh$(N).sav")
+#set_pass1_restoreFile( "bkh$(N).sav")
+#
+drvAsynIPPortConfigure( "BKH23","192.168.1.194:502",0,0,1)
+#
+#asynSetTraceIOMask( "BKH$(N)",0,4)
+#asynSetTraceMask( "BKH$(N)",0,0xf)
+#
+modbusInterposeConfig( "BKH23",0,1000)
+#- drvBkhAsynConfig( ap,op,slave,func,addr,len,dtp,name,nch,msec)
+#- drvBkhAMotConfig( ap,op,slave,func,addr,len,dtp,name,nch,msec)
+# ap is the asyn port name for this driver,
+# op is the octet port name for the TCPIP connection,
+# slave is the modbus slave number,
+# func is the modbus function,
+# addr is the modbus starting address of the memory image,
+# len is the length of the memory image, in bits or 16 bit words,
+# dtp is the data type, 0 for binary two's complement,
+# name is a resource name used in prints,
+# nch is the number of channels,
+# msec is the delay in msec in the reading poll thread,
+#------------------------------------------------------------------------------
+drvBkhAsynConfig( "DEBUG",  "BKH23",0,3,    0,125,0,"DEBG", 2,   0)
+drvMBus::drvMBus: Port=BKH23 configured
+drvBkhBase::drvBkhBase: Port=DEBUG configured
+drvBkhAsyn::drvBkhAsyn:DEBUG: firstix=0, last=32
+drvBkhAsyn::drvBkhAsyn: _locPort=DEBUG configured
+drvBkhAsynConfig( "B900R",  "BKH23",0,3,0x1000,33,0,"900R",33,1000)
+drvMBus::drvMBus: Port=BKH23 configured
+drvBkhBase::drvBkhBase: Port=B900R configured
+drvBkhAsyn::drvBkhAsyn:B900R: firstix=0, last=32
+drvBkhAsyn::IOThread:==================
+drvBkhAsyn::drvBkhAsyn: _locPort=B900R configured
+drvBkhAsyn::updateThread:==================
+drvBkhAsynConfig( "B900W",  "BKH23",0,3,0x110a,26,0,"900W",26,1000)
+drvMBus::drvMBus: Port=BKH23 configured
+drvBkhBase::drvBkhBase: Port=B900W configured
+drvBkhAsyn::drvBkhAsyn:B900W: firstix=0, last=32
+drvBkhAsyn::IOThread:==================
+drvBkhAsyn::drvBkhAsyn: _locPort=B900W configured
+drvBkhAsyn::updateThread:==================
+drvBkhAsynConfig( "A3132",  "BKH23",0,3,     0, 4,0,"3132", 2, 100)
+drvMBus::drvMBus: Port=BKH23 configured
+drvBkhBase::drvBkhBase: Port=A3132 configured
+drvBkhAsyn::drvBkhAsyn:A3132: firstix=0, last=32
+drvBkhAsyn::IOThread:==================
+drvBkhAsyn::drvBkhAsyn: _locPort=A3132 configured
+drvBkhAsyn::updateThread:==================
+drvBkhAMotConfig( "A2531",  "BKH23",0,3,     4, 3,0,"2531", 1, 100)
+drvMBus::drvMBus: Port=BKH23 configured
+drvBkhBase::drvBkhBase: Port=A2531 configured
+drvBkhAsyn::drvBkhAsyn:A2531: firstix=0, last=32
+drvBkhAsyn::drvBkhAsyn: _locPort=A2531 configured
+drvBkhAsyn::updateThread:==================
+drvBkhAsyn::IOThread:==================
+drvBkhAMot::drvBkhAMot:A2531 ix=(33,40), configured
+drvBkhAMotConfig("A2531B",  "BKH23",0,3,     4, 3,0,"2531", 1, 100)
+drvMBus::drvMBus: Port=BKH23 configured
+drvBkhBase::drvBkhBase: Port=A2531B configured
+drvBkhAsyn::drvBkhAsyn:A2531B: firstix=0, last=32
+drvBkhAsyn::drvBkhAsyn: _locPort=A2531B configured
+drvBkhAsyn::IOThread:==================
+drvBkhAsyn::updateThread:==================
+drvBkhAMot::drvBkhAMot:A2531B ix=(33,40), configured
+drvBkhAMotConfig("A2531C",  "BKH23",0,3,     4, 3,0,"2531", 1, 100)
+drvMBus::drvMBus: Port=BKH23 configured
+drvBkhBase::drvBkhBase: Port=A2531C configured
+drvBkhAsyn::drvBkhAsyn:A2531C: firstix=0, last=32
+drvBkhAsyn::drvBkhAsyn: _locPort=A2531C configured
+drvBkhAsyn::updateThread:==================
+drvBkhAsyn::IOThread:==================
+drvBkhAMot::drvBkhAMot:A2531C ix=(33,40), configured
+drvBkhAMotConfig( "A2541",  "BKH23",0,3,     7, 3,0,"2541", 1, 100)
+drvMBus::drvMBus: Port=BKH23 configured
+drvBkhBase::drvBkhBase: Port=A2541 configured
+drvBkhAsyn::drvBkhAsyn:A2541: firstix=0, last=32
+drvBkhAsyn::IOThread:==================
+drvBkhAsyn::drvBkhAsyn: _locPort=A2541 configured
+drvBkhAsyn::updateThread:==================
+drvBkhAMot::drvBkhAMot:A2541 ix=(33,40), configured
+drvBkhAMotConfig("A2541B",  "BKH23",0,3,     7, 3,0,"2541", 1, 100)
+drvMBus::drvMBus: Port=BKH23 configured
+drvBkhBase::drvBkhBase: Port=A2541B configured
+drvBkhAsyn::drvBkhAsyn:A2541B: firstix=0, last=32
+drvBkhAsyn::drvBkhAsyn: _locPort=A2541B configured
+drvBkhAsyn::updateThread:==================
+drvBkhAsyn::IOThread:==================
+drvBkhAMot::drvBkhAMot:A2541B ix=(33,40), configured
+drvBkhAMotConfig("A2541C",  "BKH23",0,3,     7, 3,0,"2541", 1, 100)
+drvMBus::drvMBus: Port=BKH23 configured
+drvBkhBase::drvBkhBase: Port=A2541C configured
+drvBkhAsyn::drvBkhAsyn:A2541C: firstix=0, last=32
+drvBkhAsyn::IOThread:==================
+drvBkhAsyn::updateThread:==================
+drvBkhAsyn::drvBkhAsyn: _locPort=A2541C configured
+drvBkhAMot::drvBkhAMot:A2541C ix=(33,40), configured
+drvBkhAsynConfig( "A4132",  "BKH23",0,3,    10, 4,0,"4132", 2, 100)
+drvMBus::drvMBus: Port=BKH23 configured
+drvBkhBase::drvBkhBase: Port=A4132 configured
+drvBkhAsyn::drvBkhAsyn:A4132: firstix=0, last=32
+drvBkhAsyn::drvBkhAsyn: _locPort=A4132 configured
+drvBkhAsyn::updateThread:==================
+#asynSetTraceIOMask( "A3132",0,4)
+#asynSetTraceMask( "A3132",0,0xf)
+dbLoadRecords( "db/bkh23.db","P=ESAA,M=23")
+drvBkhAsyn::IOThread:==================
+dbLoadRecords( "db/bkhMot23.db","P=ESAA,M=23")
+#cd ${AUTOSAVE}
+#dbLoadRecords( "db/save_restoreStatus.db","P=ESAA:")
+cd /afs/slac.stanford.edu/g/testfac/vol1/rhel6/epics/R3.14.12.2/iocTop/bkh9000A/new/iocBoot/sioc-esa-bkh23
+iocInit
+Starting iocInit
+############################################################################
+## EPICS R3.14.12.2 $Date: Mon 2011-12-12 14:09:32 -0600$
+## EPICS Base built Jul 17 2012
+############################################################################
+drvBkhAsyn::B900R:readInt32: ix=23,addr=0
+drvBkhAsyn::B900W:readInt32: ix=30,addr=0
+drvBkhAsyn::DEBUG:readInt32: ix=28,addr=0
+drvBkhAsyn::DEBUG:readInt32: ix=29,addr=0
+drvBkhAsyn::DEBUG:readInt32: ix=26,addr=0
+drvBkhAMot::A2531:readInt32: ix=-27,addr=0
+drvBkhAsyn::A2531:readInt32: ix=6,addr=0
+drvBkhAMot::A2531:readInt32: ix=-21,addr=0
+drvBkhAsyn::A2531:readInt32: ix=12,addr=0
+drvBkhAMot::A2531:readInt32: ix=-23,addr=0
+drvBkhAsyn::A2531:readInt32: ix=10,addr=0
+drvBkhAMot::A2531:readInt32: ix=-25,addr=0
+drvBkhAsyn::A2531:readInt32: ix=8,addr=0
+drvBkhAMot::A2531:readInt32: ix=-20,addr=0
+drvBkhAsyn::A2531:readInt32: ix=13,addr=0
+drvBkhAMot::A2531C:readInt32: ix=7,addr=9
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=9
+drvBkhAMot::A2531C:readInt32: ix=7,addr=18
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=18
+drvBkhAMot::A2531C:readInt32: ix=7,addr=2
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=2
+drvBkhAMot::A2531C:readInt32: ix=7,addr=0
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=0
+drvBkhAMot::A2531C:readInt32: ix=7,addr=20
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=20
+drvBkhAMot::A2531C:readInt32: ix=7,addr=1
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=1
+drvBkhAMot::A2531C:readInt32: ix=7,addr=15
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=15
+drvBkhAMot::A2531C:readInt32: ix=7,addr=8
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=8
+drvBkhAMot::A2531C:readInt32: ix=7,addr=3
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=3
+drvBkhAMot::A2531C:readInt32: ix=7,addr=4
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=4
+drvBkhAMot::A2531C:readInt32: ix=7,addr=6
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=6
+drvBkhAMot::A2531C:readInt32: ix=7,addr=5
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=5
+drvBkhAMot::A2531C:readInt32: ix=7,addr=24
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=24
+drvBkhAMot::A2531C:readInt32: ix=7,addr=23
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=23
+drvBkhAMot::A2531C:readInt32: ix=7,addr=14
+drvBkhAsyn::A2531C:readInt32: ix=40,addr=14
+drvBkhAMot::A2531B:readInt32: ix=5,addr=7
+drvBkhAsyn::A2531B:readInt32: ix=38,addr=7
+drvBkhAMot::A2531B:readInt32: ix=5,addr=31
+drvBkhAsyn::A2531B:readInt32: ix=38,addr=31
+drvBkhAMot::A2531C:readInt32: ix=5,addr=18
+drvBkhAsyn::A2531C:readInt32: ix=38,addr=18
+drvBkhAMot::A2531C:readInt32: ix=5,addr=15
+drvBkhAsyn::A2531C:readInt32: ix=38,addr=15
+drvBkhAMot::A2531C:readInt32: ix=5,addr=8
+drvBkhAsyn::A2531C:readInt32: ix=38,addr=8
+drvBkhAMot::A2531C:readInt32: ix=5,addr=26
+drvBkhAsyn::A2531C:readInt32: ix=38,addr=26
+drvBkhAMot::A2531C:readInt32: ix=5,addr=7
+drvBkhAsyn::A2531C:readInt32: ix=38,addr=7
+drvBkhAMot::A2531C:readInt32: ix=5,addr=6
+drvBkhAsyn::A2531C:readInt32: ix=38,addr=6
+drvBkhAMot::A2531B:readInt32: ix=5,addr=4
+drvBkhAsyn::A2531B:readInt32: ix=38,addr=4
+drvBkhAMot::A2531B:readInt32: ix=5,addr=3
+drvBkhAsyn::A2531B:readInt32: ix=38,addr=3
+drvBkhAMot::A2531B:readInt32: ix=5,addr=2
+drvBkhAsyn::A2531B:readInt32: ix=38,addr=2
+drvBkhAMot::A2531:readInt32: ix=-17,addr=0
+drvBkhAsyn::A2531:readInt32: ix=16,addr=0
+drvBkhAMot::A2541:readInt32: ix=-27,addr=0
+drvBkhAsyn::A2541:readInt32: ix=6,addr=0
+drvBkhAMot::A2541:readInt32: ix=-21,addr=0
+drvBkhAsyn::A2541:readInt32: ix=12,addr=0
+drvBkhAMot::A2541:readInt32: ix=-23,addr=0
+drvBkhAsyn::A2541:readInt32: ix=10,addr=0
+drvBkhAMot::A2541:readInt32: ix=-25,addr=0
+drvBkhAsyn::A2541:readInt32: ix=8,addr=0
+drvBkhAMot::A2541:readInt32: ix=-20,addr=0
+drvBkhAsyn::A2541:readInt32: ix=13,addr=0
+drvBkhAMot::A2541C:readInt32: ix=7,addr=9
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=9
+drvBkhAMot::A2541C:readInt32: ix=7,addr=18
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=18
+drvBkhAMot::A2541C:readInt32: ix=7,addr=2
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=2
+drvBkhAMot::A2541C:readInt32: ix=7,addr=0
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=0
+drvBkhAMot::A2541C:readInt32: ix=7,addr=20
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=20
+drvBkhAMot::A2541C:readInt32: ix=7,addr=1
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=1
+drvBkhAMot::A2541C:readInt32: ix=7,addr=15
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=15
+drvBkhAMot::A2541C:readInt32: ix=7,addr=8
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=8
+drvBkhAMot::A2541C:readInt32: ix=7,addr=3
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=3
+drvBkhAMot::A2541C:readInt32: ix=7,addr=4
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=4
+drvBkhAMot::A2541C:readInt32: ix=7,addr=6
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=6
+drvBkhAMot::A2541C:readInt32: ix=7,addr=5
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=5
+drvBkhAMot::A2541C:readInt32: ix=7,addr=24
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=24
+drvBkhAMot::A2541C:readInt32: ix=7,addr=23
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=23
+drvBkhAMot::A2541C:readInt32: ix=7,addr=14
+drvBkhAsyn::A2541C:readInt32: ix=40,addr=14
+drvBkhAMot::A2541B:readInt32: ix=5,addr=7
+drvBkhAsyn::A2541B:readInt32: ix=38,addr=7
+drvBkhAMot::A2541B:readInt32: ix=5,addr=31
+drvBkhAsyn::A2541B:readInt32: ix=38,addr=31
+drvBkhAMot::A2541C:readInt32: ix=5,addr=18
+drvBkhAsyn::A2541C:readInt32: ix=38,addr=18
+drvBkhAMot::A2541C:readInt32: ix=5,addr=15
+drvBkhAsyn::A2541C:readInt32: ix=38,addr=15
+drvBkhAMot::A2541C:readInt32: ix=5,addr=8
+drvBkhAsyn::A2541C:readInt32: ix=38,addr=8
+drvBkhAMot::A2541C:readInt32: ix=5,addr=26
+drvBkhAsyn::A2541C:readInt32: ix=38,addr=26
+drvBkhAMot::A2541C:readInt32: ix=5,addr=7
+drvBkhAsyn::A2541C:readInt32: ix=38,addr=7
+drvBkhAMot::A2541C:readInt32: ix=5,addr=6
+drvBkhAsyn::A2541C:readInt32: ix=38,addr=6
+drvBkhAMot::A2541B:readInt32: ix=5,addr=4
+drvBkhAsyn::A2541B:readInt32: ix=38,addr=4
+drvBkhAMot::A2541B:readInt32: ix=5,addr=3
+drvBkhAsyn::A2541B:readInt32: ix=38,addr=3
+drvBkhAMot::A2541B:readInt32: ix=5,addr=2
+drvBkhAsyn::A2541B:readInt32: ix=38,addr=2
+drvBkhAMot::A2541:readInt32: ix=-17,addr=0
+drvBkhAsyn::A2541:readInt32: ix=16,addr=0
+drvBkhAsyn::A3132:readInt32: ix=12,addr=0
+drvBkhAsyn::A3132:readInt32: ix=13,addr=0
+drvBkhAsyn::A3132:readInt32: ix=16,addr=0
+drvBkhAsyn::A4132:readInt32: ix=8,addr=0
+drvBkhAsyn::A4132:readInt32: ix=8,addr=1
+drvBkhAsyn::A4132:readInt32: ix=12,addr=0
+drvBkhAsyn::A4132:readInt32: ix=13,addr=0
+drvBkhAsyn::A4132:readInt32: ix=16,addr=0
+drvBkhAsyn::B900W:readInt32: ix=19,addr=0
+drvBkhAsyn::B900W:readInt32: ix=19,addr=1
+drvBkhAsyn::B900W:readInt32: ix=19,addr=22
+drvBkhAsyn::B900W:readInt32: ix=19,addr=23
+drvBkhAsyn::B900W:readInt32: ix=19,addr=24
+drvBkhAsyn::B900W:readInt32: ix=19,addr=25
+drvBkhAsyn::DEBUG:readInt32: ix=24,addr=0
+drvBkhAsyn::DEBUG:readInt32: ix=27,addr=0
+drvBkhAsyn::DEBUG:readInt32: ix=25,addr=0
+drvBkhAMot::A2541:readInt32: ix=-26,addr=0
+drvBkhAsyn::A2541:readInt32: ix=7,addr=0
+drvBkhAMot::A2531C:readInt32: ix=6,addr=9
+drvBkhAMot::A2531B:readInt32: ix=3,addr=9
+drvBkhAMot::A2531:readInt32: ix=-26,addr=0
+drvBkhAsyn::A2531:readInt32: ix=7,addr=0
+drvBkhAMot::A2541B:readInt32: ix=3,addr=9
+drvBkhAMot::A2541B:readInt32: ix=3,addr=1
+drvBkhAsyn::B900W:readInt32: ix=20,addr=0
+drvBkhAMot::A2541B:readInt32: ix=3,addr=0
+drvBkhAMot::A2531C:readInt32: ix=6,addr=18
+drvBkhAMot::A2541B:readInt32: ix=3,addr=6
+drvBkhAsyn::A4132:readInt32: ix=9,addr=0
+drvBkhAMot::A2531C:readInt32: ix=6,addr=2
+drvBkhAMot::A2531C:readInt32: ix=6,addr=0
+drvBkhAMot::A2531C:readInt32: ix=6,addr=20
+drvBkhAMot::A2531C:readInt32: ix=6,addr=1
+drvBkhAMot::A2531C:readInt32: ix=6,addr=15
+drvBkhAMot::A2531C:readInt32: ix=6,addr=8
+drvBkhAMot::A2531C:readInt32: ix=6,addr=3
+drvBkhAsyn::A3132:readInt32: ix=4,addr=0
+drvBkhAMot::A2541B:readInt32: ix=3,addr=8
+drvBkhAMot::A2531C:readInt32: ix=6,addr=4
+drvBkhAsyn::B900R:readInt32: ix=20,addr=10
+drvBkhAMot::A2541B:readInt32: ix=4,addr=7
+drvBkhAMot::A2541B:readInt32: ix=4,addr=31
+drvBkhAMot::A2541B:readInt32: ix=4,addr=4
+drvBkhAMot::A2541B:readInt32: ix=4,addr=3
+drvBkhAMot::A2541B:readInt32: ix=4,addr=2
+drvBkhAMot::A2541C:readInt32: ix=6,addr=9
+drvBkhAMot::A2541C:readInt32: ix=6,addr=18
+drvBkhAMot::A2541C:readInt32: ix=6,addr=2
+drvBkhAMot::A2541C:readInt32: ix=6,addr=0
+drvBkhAMot::A2541C:readInt32: ix=6,addr=20
+drvBkhAMot::A2541C:readInt32: ix=6,addr=1
+drvBkhAMot::A2541C:readInt32: ix=6,addr=15
+drvBkhAMot::A2541C:readInt32: ix=6,addr=8
+drvBkhAMot::A2541C:readInt32: ix=6,addr=3
+drvBkhAMot::A2531C:readInt32: ix=6,addr=6
+drvBkhAMot::A2531C:readInt32: ix=6,addr=5
+drvBkhAMot::A2531C:readInt32: ix=6,addr=24
+drvBkhAMot::A2531C:readInt32: ix=6,addr=23
+drvBkhAMot::A2531C:readInt32: ix=6,addr=14
+drvBkhAMot::A2541C:readInt32: ix=6,addr=4
+drvBkhAMot::A2531C:readInt32: ix=4,addr=18
+drvBkhAMot::A2531C:readInt32: ix=4,addr=15
+drvBkhAMot::A2531C:readInt32: ix=4,addr=8
+drvBkhAMot::A2531C:readInt32: ix=4,addr=26
+drvBkhAMot::A2531C:readInt32: ix=4,addr=7
+drvBkhAMot::A2531C:readInt32: ix=4,addr=6
+drvBkhAMot::A2541C:readInt32: ix=6,addr=6
+drvBkhAMot::A2541C:readInt32: ix=6,addr=5
+drvBkhAMot::A2541C:readInt32: ix=6,addr=24
+drvBkhAMot::A2541C:readInt32: ix=6,addr=23
+drvBkhAMot::A2541C:readInt32: ix=6,addr=14
+drvBkhAMot::A2541C:readInt32: ix=4,addr=18
+drvBkhAMot::A2541C:readInt32: ix=4,addr=15
+drvBkhAMot::A2541C:readInt32: ix=4,addr=8
+drvBkhAMot::A2541C:readInt32: ix=4,addr=26
+drvBkhAMot::A2541C:readInt32: ix=4,addr=7
+drvBkhAMot::A2541C:readInt32: ix=4,addr=6
+cas warning: Configured TCP port was unavailable.
+cas warning: Using dynamically assigned TCP port 34685,
+cas warning: but now two or more servers share the same UDP port.
+cas warning: Depending on your IP kernel this server may not be
+cas warning: reachable with UDP unicast (a host's IP in EPICS_CA_ADDR_LIST)
+iocRun: All initialization complete
+#create_monitor_set( "bkh$(N).req",30,"P=ESAA,M=$(N)")
+dbpf "ESAA:BO:900R-23:INIT.PROC" 1
+DBR_UCHAR:          1         0x1                 
+dbpf "ESAA:LO:DEBUG-23:MADDR" 0
+DBR_LONG:           0         0x0                 
+dbpf "ESAA:LO:DEBUG-23:MFUNC" 3
+DBR_LONG:           3         0x3                 
+drvBkhAMot::A2531B:readInt32: ix=3,addr=1
+drvBkhAMot::A2531B:readInt32: ix=3,addr=0
+drvBkhAMot::A2531B:readInt32: ix=3,addr=6
+drvBkhAMot::A2531B:readInt32: ix=3,addr=8
+drvBkhAMot::A2531B:readInt32: ix=4,addr=7
+drvBkhAMot::A2531B:readInt32: ix=4,addr=31
+drvBkhAMot::A2531B:readInt32: ix=4,addr=4
+drvBkhAMot::A2531B:readInt32: ix=4,addr=3
+drvBkhAMot::A2531B:readInt32: ix=4,addr=2
+drvBkhAMot::A2541:readInt32: ix=-22,addr=0
+drvBkhAsyn::A2541:readInt32: ix=11,addr=0
+drvBkhAMot::A2531:readInt32: ix=-22,addr=0
+drvBkhAsyn::A2531:readInt32: ix=11,addr=0
+drvBkhAsyn::B900W:readInt32: ix=20,addr=1
+drvBkhAsyn::A4132:readInt32: ix=9,addr=1
+drvBkhAsyn::B900R:readInt32: ix=20,addr=11
+drvBkhAMot::A2541:readInt32: ix=-29,addr=0
+drvBkhAsyn::A2541:readInt32: ix=4,addr=0
+drvBkhAMot::A2531:readInt32: ix=-29,addr=0
+drvBkhAsyn::A2531:readInt32: ix=4,addr=0
+drvBkhAsyn::B900W:readInt32: ix=20,addr=22
+drvBkhAsyn::A4132:readInt32: ix=3,addr=0
+drvBkhAsyn::A4132:readInt32: ix=3,addr=1
+drvBkhAsyn::A3132:readInt32: ix=4,addr=1
+drvBkhAsyn::B900R:readInt32: ix=20,addr=12
+drvBkhAsyn::B900W:readInt32: ix=20,addr=23
+epics> drvBkhAsyn::B900R:readInt32: ix=20,addr=16
+drvBkhAMot::A2541:readInt32: ix=-24,addr=0
+drvBkhAsyn::A2541:readInt32: ix=9,addr=0
+drvBkhAMot::A2531:readInt32: ix=-24,addr=0
+drvBkhAsyn::A2531:readInt32: ix=9,addr=0
+drvBkhAsyn::B900W:readInt32: ix=20,addr=24
+drvBkhAsyn::A3132:readInt32: ix=3,addr=0
+drvBkhAsyn::A3132:readInt32: ix=3,addr=1
+drvBkhAsyn::B900R:readInt32: ix=20,addr=17
+drvBkhAMot::A2541:readInt32: ix=-30,addr=0
+drvBkhAsyn::A2541:readInt32: ix=3,addr=0
+drvBkhAMot::A2541:readInt32: ix=-28,addr=0
+drvBkhAsyn::A2541:readInt32: ix=5,addr=0
+drvBkhAMot::A2531:readInt32: ix=-30,addr=0
+drvBkhAsyn::A2531:readInt32: ix=3,addr=0
+drvBkhAMot::A2531:readInt32: ix=-28,addr=0
+drvBkhAsyn::A2531:readInt32: ix=5,addr=0
+drvBkhAsyn::B900W:readInt32: ix=20,addr=25
+drvBkhAsyn::B900R:readInt32: ix=20,addr=18
+drvBkhAsyn::B900R:readInt32: ix=20,addr=19
+drvBkhAsyn::B900R:readInt32: ix=20,addr=32
+exit
+drvBkhAsyn::A4132:exitHndl: Clear ID
+drvBkhBase::A4132:exitHndl: Clear ID
+drvMBus::4132:exitHndl: Clear ID
+drvBkhAMot::A2541C:exitHndl: Clear ID
+drvBkhAsyn::A2541C:exitHndl: Clear ID
+drvBkhBase::A2541C:exitHndl: Clear ID
+drvMBus::2541:exitHndl: Clear ID
+drvBkhAMot::A2541B:exitHndl: Clear ID
+drvBkhAsyn::A2541B:exitHndl: Clear ID
+drvBkhBase::A2541B:exitHndl: Clear ID
+drvMBus::2541:exitHndl: Clear ID
+drvBkhAMot::A2541:exitHndl: Clear ID
+drvBkhAsyn::A2541:exitHndl: Clear ID
+drvBkhBase::A2541:exitHndl: Clear ID
+zms@esaanal2 $ Use "exit" to leave the shell.
+zms@esaanal2 $ exit
+exit
+
+Script done on Tue Jun 25 20:19:36 2013

@@ -1,0 +1,8 @@
+record( bi, "$(P):BI:$(MOD):BIT$(N)"){
+  field( DESC, "$(MOD) BIT$(N):")
+  field( DTYP, "asynInt32")
+  field( INP,  "@asyn($(PORT) $(OFF) 1)BI_BVAL")
+  field( SCAN, "I/O Intr")
+  field( ZNAM, "off")
+  field( ONAM, "on")
+}

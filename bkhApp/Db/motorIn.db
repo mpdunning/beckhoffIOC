@@ -1,0 +1,25 @@
+# motorIn.db
+# This template is for reading stepper motor controller visible registers..
+#----------------------------------------------------------
+record( longin, "$(P):LI:$(MOD):SBYTE"){
+  field( DESC, "Status Byte:")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_SBYTE")
+# field( PINI, "YES")
+}
+record( longin, "$(P):LI:$(MOD):DATA"){
+  field( DESC, "$(DESC):")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_DATA")
+# field( PINI, "YES")
+}
+record( longin, "$(P):LI:$(MOD):SWORD"){
+  field( DESC, "Status Word:")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_SWORD")
+# field( PINI, "YES")
+}
+

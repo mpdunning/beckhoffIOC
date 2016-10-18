@@ -1,0 +1,133 @@
+Here I compile times when an error is written to a log file by a few Beckhoff
+IOCs.  These IOCs are connected to the swh-b061 network switch and are on
+the NLCTA restricted sub-net.
+
+Recently observed errors:
+
+epics> drvAsynIPPort:readIt:poll: stat=0,errno=11
+modbufInterpose::readIt: stat=1
+2013/08/31 02:35:54.313 modbusAsyn::doModbusIO port BKH21 error calling writeRead, error=sioc-esa-bkh21:502 timeout: Resource temporarily unavailable, nwrite=6/6, nread=0, msec=1001
+drvMBus::mbusMemIO: pdrv=0x165e000,maddr=0x3,addr=0,pix=999,func=3,len=3,w=(15,59392)
+
+The modbus driver issues a write-read request.  The error message printed is
+for the read part.  It means that the read request timedout after 1 second.
+It is not clear if the write completed successfully.  It is possible, I think,
+that the write successfully sent the data to the TCP socket and onto the wire
+but the data were never delivered to the hardware.  So, either the Beckhhoff
+coupler did not receive the "query" data, or was not able to respond
+within 1 second.
+
+1. From log file of sioc-esa-bkh21 IOC
+
+The above listed error occurred on:
+
+2013/08/31 02:35:54.313
+2013/08/31 02:35:54.463
+2013/08/31 02:36:12.723
+2013/08/31 02:43:26.678
+2013/08/31 02:51:58.781
+
+2013/09/01 03:51:58.795
+
+2013/09/02 02:43:44.718
+2013/09/02 02:44:02.828
+2013/09/02 04:52:00.106
+
+2013/09/03 02:35:30.587
+2013/09/03 02:35:49.088
+2013/09/03 02:44:05.494
+
+2. From log file of sioc-esa-bkh4 IOC
+
+The error listed above also occurred here on:
+
+2013/08/27 02:43:08.015
+
+2013/08/28 02:43:39.002
+2013/08/28 02:44:57.644
+2013/08/28 02:44:59.245
+2013/08/28 02:45:09.051
+
+2013/08/28 07:15:15.339
+2013/08/28 07:15:16.340
+2013/08/28 07:15:17.342
+2013/08/28 07:15:18.343
+2013/08/28 07:15:19.344
+2013/08/28 07:15:20.346
+2013/08/28 07:15:21.347
+2013/08/28 07:15:22.349
+2013/08/28 07:15:23.350
+2013/08/28 07:15:24.351
+2013/08/28 07:15:25.352
+2013/08/28 07:15:26.353
+2013/08/28 07:15:27.354
+2013/08/28 07:15:28.355
+2013/08/28 07:15:29.356
+2013/08/28 07:15:30.357
+2013/08/28 07:15:31.358
+2013/08/28 07:15:32.359
+2013/08/28 07:15:33.360
+2013/08/28 07:15:34.361
+2013/08/28 07:15:35.362
+2013/08/28 07:15:36.363         This sequence of errors eventually resulted
+2013/08/28 07:15:37.364		in a broken connection,
+2013/08/28 07:15:38.365		It is possible that the unit was powered off.
+
+2013/08/29 02:35:39.468
+2013/08/29 02:35:40.874
+2013/08/29 02:43:56.166
+2013/08/29 02:44:36.387
+
+2013/08/30 02:35:19.422
+2013/08/30 02:43:13.906
+2013/08/30 02:43:33.319
+2013/08/30 02:43:56.134
+
+2013/08/31 02:43:26.782
+
+2013/09/02 02:43:44.716
+2013/09/02 02:44:04.128
+2013/09/02 04:51:59.305
+
+2013/09/03 02:43:24.469
+2013/09/03 02:44:05.493
+
+3. From log file of sioc-esa-bkh22 IOC:
+
+The error listed above also occurred here on:
+
+2013/08/27 02:35:51.556
+
+2013/08/28 02:37:04.059
+2013/08/28 02:37:05.256
+2013/08/28 02:37:13.062
+2013/08/28 02:44:57.845
+2013/08/28 02:44:59.849
+2013/08/28 02:45:02.450
+
+2013/08/28 07:15:15.328
+...				See above
+2013/08/28 07:15:38.355
+
+2013/08/29 02:35:39.373
+
+2013/08/30 02:43:13.806
+
+2013/08/30 16:45:27.588
+2013/08/30 16:45:28.590
+2013/08/30 16:45:29.591
+2013/08/30 16:45:30.592
+2013/08/30 16:45:31.593
+2013/08/30 16:45:32.594
+2013/08/30 16:45:33.595
+2013/08/30 16:47:08.436
+2013/08/30 16:47:09.437		Again, these are followed by a disconnected
+2013/08/30 16:47:10.438		error message, the unit was
+2013/08/30 16:47:11.439		probably power cycled.
+
+2013/08/31 02:43:26.578
+2013/08/31 02:51:58.785
+
+2013/09/03 02:35:49.092
+
+

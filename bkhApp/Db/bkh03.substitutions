@@ -1,0 +1,153 @@
+# bkh03.substitutions.
+# BK9000+KL3408+KL1512+KL1104+KL2408+KL1408+KL1498+KL3314+KL9010
+#-------------------------------------------------------------------
+
+file analogIn.db
+{
+pattern { N,ADDR,  DESC,      MOD,  PORT, EGU,EOFF,       ESLO,PREC}
+	{ 1,   0,Chan01,3408-$(M), A3408,   V,   0,0.000305185,   2}
+	{ 2,   1,Chan02,3408-$(M), A3408,   V,   0,0.000305185,   2}
+	{ 3,   2,Chan03,3408-$(M), A3408,   V,   0,0.000305185,   2}
+	{ 4,   3,Chan04,3408-$(M), A3408,   V,   0,0.000305185,   2}
+	{ 5,   4,Chan05,3408-$(M), A3408,   V,   0,0.000305185,   2}
+	{ 6,   5,Chan06,3408-$(M), A3408,   V,   0,0.000305185,   2}
+	{ 7,   6,Chan07,3408-$(M), A3408,   V,   0,0.000305185,   2}
+	{ 8,   7,Chan08,3408-$(M), A3408,   V,   0,0.000305185,   2}
+}
+# counters
+file bkhLi.db
+{
+pattern { N, CH,   DESC,      MOD,  PORT, EGU}
+        { 1,  0, Chan01,1512-$(M), A1512,  CT}
+        { 2,  1, Chan02,1512-$(M), A1512,  CT}
+}
+file bkhLo.db
+{
+pattern { N, CH,   DESC,       MOD,  PORT}
+        { 1,  0, Chan01, 1512-$(M), A1512}
+        { 2,  1, Chan02, 1512-$(M), A1512}
+}
+#file analogIn.db
+#{
+#pattern { N,ADDR,  DESC,      MOD,  PORT, EGU,EOFF,       ESLO,PREC}
+#	{ 1,   0,Chan01,3132-$(M), A3132,   V,   0,0.000305185,   2}
+#	{ 2,   1,Chan02,3132-$(M), A3132,   V,   0,0.000305185,   2}
+#}
+file analogTemp.db
+{
+pattern { N,ADDR,  DESC, MOD,  PORT, ESLO,PREC}
+	{ 1,   0,Chan01,3314, A3314,  0.1,   2}
+	{ 2,   1,Chan02,3314, A3314,  0.1,   2}
+	{ 3,   2,Chan03,3314, A3314,  0.1,   2}
+	{ 4,   3,Chan04,3314, A3314,  0.1,   2}
+}
+#file analogIn.db
+#{
+#pattern { N,ADDR,  DESC,      MOD,  PORT, EGU,EOFF,       ESLO,PREC}
+#	{ 1,   0,Chan01,3064-$(M), A3064,   V,   0,0.000305185,   2}
+#	{ 2,   1,Chan02,3064-$(M), A3064,   V,   0,0.000305185,   2}
+#	{ 3,   2,Chan03,3064-$(M), A3064,   V,   0,0.000305185,   2}
+#	{ 4,   3,Chan04,3064-$(M), A3064,   V,   0,0.000305185,   2}
+#}
+file bkhBi.db
+{
+pattern	{ N,       MOD,  PORT, OFF}
+	{ 1, 1104-$(M), A1104,   0}
+	{ 2, 1104-$(M), A1104,   1}
+	{ 3, 1104-$(M), A1104,   2}
+	{ 4, 1104-$(M), A1104,   3}
+}
+file bkhBo.db
+{
+pattern	{ N,       MOD,  PORT, OFF}
+	{ 1, 2408-$(M), A2408,   0}
+	{ 2, 2408-$(M), A2408,   1}
+	{ 3, 2408-$(M), A2408,   2}
+	{ 4, 2408-$(M), A2408,   3}
+	{ 5, 2408-$(M), A2408,   4}
+	{ 6, 2408-$(M), A2408,   5}
+	{ 7, 2408-$(M), A2408,   6}
+	{ 8, 2408-$(M), A2408,   7}
+}
+file bkhBi.db
+{
+pattern	{ N,       MOD,  PORT, OFF}
+	{ 1, 1408-$(M), A1408,   0}
+	{ 2, 1408-$(M), A1408,   1}
+	{ 3, 1408-$(M), A1408,   2}
+	{ 4, 1408-$(M), A1408,   3}
+	{ 5, 1408-$(M), A1408,   4}
+	{ 6, 1408-$(M), A1408,   5}
+	{ 7, 1408-$(M), A1408,   6}
+	{ 8, 1408-$(M), A1408,   7}
+}
+file bkhBi.db
+{
+pattern	{ N,       MOD,  PORT, OFF}
+	{ 1, 1498-$(M), A1498,   0}
+	{ 2, 1498-$(M), A1498,   1}
+	{ 3, 1498-$(M), A1498,   2}
+	{ 4, 1498-$(M), A1498,   3}
+	{ 5, 1498-$(M), A1498,   4}
+	{ 6, 1498-$(M), A1498,   5}
+	{ 7, 1498-$(M), A1498,   6}
+	{ 8, 1498-$(M), A1498,   7}
+}
+file readwrite.db
+{
+pattern	{      MOD,  PORT}
+	{3408-$(M), A3408}
+	{1512-$(M), A1512}
+#	{3132-$(M), A3132}
+	{3314-$(M), A3314}
+#	{3064-$(M), A3064}
+}
+file bkhAdrv.db
+{
+pattern	{      MOD,  PORT}
+	{3408-$(M), A3408}
+	{1512-$(M), A1512}
+#	{3132-$(M), A3132}
+	{3314-$(M), A3314}
+#	{3064-$(M), A3064}
+	{1408-$(M), A1408}
+	{1498-$(M), A1498}
+	{2408-$(M), A2408}
+}
+file bkhAErr.db
+{
+pattern	{       MOD,  PORT}
+	{ 3408-$(M), A3408}
+	{ 1512-$(M), A1512}
+#	{ 3132-$(M), A3132}
+	{ 3314-$(M), A3314}
+#	{ 3064-$(M), A3064}
+	{ 1104-$(M), A1104}
+	{ 1408-$(M), A1408}
+	{ 1498-$(M), A1498}
+}
+file b9000.db{
+	{ RPORT=B900R, WPORT=B900W}
+}
+file b9000RRegs.db
+{
+pattern	{ N,                 DESC,  PORT}
+	{10,      "PLC Interface", B900R}
+	{11, "Bus Term Diagnossi", B900R}
+	{12, "Bus Coupler Status", B900R}
+	{16, "anlg output length", B900R}
+	{17, "anlg inputs length", B900R}
+	{18, "Outpt Image length", B900R}
+	{19, "Input Image length", B900R}
+	{32, "Watchdog curr time", B900R}
+}
+file b9000WRegs.db
+{
+pattern	{ N,                 DESC,  PORT}
+	{ 0,      "PLC Interface", B900W}
+	{ 1, "Bus Term Diagnossi", B900W}
+	{22,"Watchdog Tmout (ms)", B900W}
+	{23,     "Watchdog Reset", B900W}
+	{24,      "Watchdog type", B900W}
+	{25,    "Modbus TCP mode", B900W}
+}

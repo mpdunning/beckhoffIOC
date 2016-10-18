@@ -1,0 +1,13 @@
+file bkhxRegs.template
+{
+pattern	{                 DESC,       MOD,OFF,  N}
+	{      "PLC Interface",BKH$(M)_R1,  0, 10}
+	{ "Bus Term Diagnosis",BKH$(M)_R1,  1, 11}
+	{ "Bus Coupler Status",BKH$(M)_R1,  2, 12}
+
+	{ "anlg output length",BKH$(M)_R2,  0, 16}
+	{ "anlg inputs length",BKH$(M)_R2,  1, 17}
+	{ "Outpt Image length",BKH$(M)_R2,  2, 18}
+	{ "Input Image length",BKH$(M)_R2,  3, 19}
+	{ "Watchdog curr time",BKH$(M)_R3,  0, 32}
+}

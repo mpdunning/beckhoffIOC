@@ -1,0 +1,234 @@
+#--- State the motor is in -----------------------------------
+record( mbbi, "$(P):MBBI:$(MOD):CH$(N):MOTOR:STATE"){
+  field( DESC, "Motor State:")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_STATE")
+  field( NOBT, "5")
+  field( ZRVL, "0")
+  field( ONVL, "1")
+  field( TWVL, "2")
+  field( THVL, "3")
+  field( FRVL, "4")
+  field( FVVL, "5")
+  field( ZRST, "NotReady")
+  field( ONST, "Ready")
+  field( TWST, "Moving")
+  field( THST, "Stopped")
+  field( FRST, "atSoftLim")
+  field( FVST, "atHardLim")
+}
+#--- read actual position 32 bit -----------------------------
+record( bo,"$(P):BO:$(MOD):CH$(N):READ:POS"){
+  field( DESC, "read position:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT) $(ADDR) 1)BO_READPOS")
+  field( ZNAM, "Not")
+  field( ONAM, "Yes")
+  field( VAL,  "0")
+}
+record( longin, "$(P):LI:$(MOD):CH$(N):POS"){
+  field( DESC, "Actual position:")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_APOS")
+  field( EGU,  "uStp")
+  field( FLNK, "$(P):CALC:$(MOD):CH$(N):POS:MM")
+}
+record( calc, "$(P):CALC:$(MOD):CH$(N):POS:MM"){
+  field( DESC, "Convert to mm")
+  field( CALC, "(((A)/((B=0)?1:B)/(2^C))-D)/((E=0)?1:E)")
+  field( INPA, "$(P):LI:$(MOD):CH$(N):POS NPP")
+  field( INPB, "$(P):LI:$(MOD):RWE:FMOST NPP")
+  field( INPC, "$(P):LI:$(MOD):RWE:STPSZ NPP")
+  field( INPD, "$(P):AO:$(MOD):CH$(N):CONV:POS:A")
+  field( INPE, "$(P):AO:$(MOD):CH$(N):CONV:POS:B")
+  field( PREC, "2")
+  field( EGU,  "mm")
+  field( LOPR, "$(LOPR)")
+  field( HOPR, "$(HOPR)")
+}
+#--- conversion coefficients mm - rev ----------------
+record( ao, "$(P):AO:$(MOD):CH$(N):CONV:POS:A"){
+  field( DESC, "Intercept:")
+  field( PREC, "3")
+  field( VAL,  "0.0")
+}
+record( ao, "$(P):AO:$(MOD):CH$(N):CONV:POS:B"){
+  field( DESC, "Slope:")
+  field( PREC, "3")
+  field( VAL,  "1.0")
+}
+#--- Set position 32 bit ------------------------------------
+##-- convert mm to revolutions to micro steps ---------------
+record( ao, "$(P):AO:$(MOD):CH$(N):SET:POS:MM"){
+  field( DESC, "Position:")
+  field( DTYP, "Soft Channel")
+  field( EGU,  "mm")
+  field( PREC, "1")
+  field( LOPR, "$(LOPR)")
+  field( HOPR, "$(HOPR)")
+# field( PINI, "YES")
+  field( FLNK, "$(P):CALC:$(MOD):CH$(N):SET:POS:TOREV")
+}
+record( calc, "$(P):CALC:$(MOD):CH$(N):SET:POS:TOREV"){
+  field( DESC, "mm to revolutions:")
+  field( CALC, "A+B*C")
+  field( INPA, "$(P):AO:$(MOD):CH$(N):CONV:POS:A")
+  field( INPB, "$(P):AO:$(MOD):CH$(N):CONV:POS:B")
+  field( INPC, "$(P):AO:$(MOD):CH$(N):SET:POS:MM")
+  field( EGU,  "rev")
+  field( FLNK, "$(P):CALC:$(MOD):CH$(N):SET:POS:STEP")
+}
+record( calc, "$(P):CALC:$(MOD):CH$(N):SET:POS:STEP"){
+  field( DESC, "Rev to Steps:")
+  field( CALC, "A*B*(2^C)")
+  field( INPA, "$(P):CALC:$(MOD):CH$(N):SET:POS:TOREV NPP")
+  field( INPB, "$(P):LI:$(MOD):RWE:FMOST NPP")
+  field( INPC, "$(P):LI:$(MOD):RWE:STPSZ NPP")
+  field( PREC, "3")
+  field( EGU,  "uStp")
+  field( FLNK, "$(P):LO:$(MOD):CH$(N):SET:POS:STEP")
+}
+record( longout, "$(P):LO:$(MOD):CH$(N):SET:POS:STEP"){
+  field( DESC, "Set Steps:")
+  field( DTYP, "asynInt32")
+  field( OMSL, "closed_loop")
+  field( DOL,  "$(P):CALC:$(MOD):CH$(N):SET:POS:STEP")
+  field( OUT,  "@asyn($(PORT),$(ADDR),1)LO_SPOS")
+}
+#--- for jog off limit switch in micro steps -------------------------
+record( longout, "$(P):LO:$(MOD):CH$(N):JOG:VAL"){
+  field( DESC, "Jog value:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT),$(ADDR),1)LO_JOGV")
+  field( EGU,  "uStp")
+  field( PINI, "YES")
+}
+#--- Relative move for jog function -----------------------
+record( ao, "$(P):AO:$(MOD):CH$(N):SET:INC:MM"){
+  field( DESC, "Position:")
+  field( DTYP, "Soft Channel")
+  field( EGU,  "mm")
+  field( PREC, "2")
+#  field( PINI, "YES")
+  field( FLNK, "$(P):CALC:$(MOD):CH$(N):SET:INC:TOREV")
+}
+record( calc, "$(P):CALC:$(MOD):CH$(N):SET:INC:TOREV"){
+  field( DESC, "mm to revolutions:")
+  field( CALC, "A+B*C")
+  field( INPA, "$(P):AO:$(MOD):CH$(N):CONV:POS:A")
+  field( INPB, "$(P):AO:$(MOD):CH$(N):CONV:POS:B")
+  field( INPC, "$(P):AO:$(MOD):CH$(N):SET:INC:MM")
+  field( EGU,  "rev")
+  field( FLNK, "$(P):CALC:$(MOD):CH$(N):SET:INC:STEP")
+}
+record( calc, "$(P):CALC:$(MOD):CH$(N):SET:INC:STEP"){
+  field( DESC, "Rev to Steps:")
+  field( CALC, "A*B*(2^C)")
+  field( INPA, "$(P):CALC:$(MOD):CH$(N):SET:INC:TOREV NPP")
+  field( INPB, "$(P):LI:$(MOD):RWE:FMOST NPP")
+  field( INPC, "$(P):LI:$(MOD):RWE:STPSZ NPP")
+  field( PREC, "3")
+  field( EGU,  "uStp")
+  field( FLNK, "$(P):LO:$(MOD):CH$(N):SET:INC:STEP")
+}
+record( longout, "$(P):LO:$(MOD):CH$(N):SET:INC:STEP"){
+  field( DESC, "Set Steps:")
+  field( DTYP, "asynInt32")
+  field( OMSL, "closed_loop")
+  field( DOL,  "$(P):CALC:$(MOD):CH$(N):SET:INC:STEP")
+  field( OUT,  "@asyn($(PORT),$(ADDR),1)LO_INCR")
+}
+#--- read back set position -------------------------------
+record( bo,"$(P):BO:$(MOD):CH$(N):READ:SETPT"){
+  field( DESC, "read set point:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT) $(ADDR) 1)BO_RDSETPT")
+  field( ZNAM, "Not")
+  field( ONAM, "Yes")
+}
+record( longin, "$(P):LI:$(MOD):CH$(N):SET:POS"){
+  field( DESC, "Set position RBV:")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_SPOS")
+  field( EGU,  "uStp")
+# field( FLNK, "$(P):CALC:$(MOD):CH$(N):POS:MM")
+}
+#--- some push buttons ------------------------------------
+record( bo,"$(P):BO:$(MOD):CH$(N):JOG:FOR"){
+  field( DESC, "Jog forward:")
+  field( SDIS, "$(P):BI:$(MOD):CH$(N):DENY")
+  field( DISV, "1")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT) $(ADDR) 1)BO_JOGF")
+  field( HIGH, "0.1")
+  field( ZNAM, "Not")
+  field( ONAM, "Yes")
+  field( VAL,  "0")
+}
+record( bo,"$(P):BO:$(MOD):CH$(N):JOG:REV"){
+  field( DESC, "Jog reverse:")
+  field( SDIS, "$(P):BI:$(MOD):CH$(N):DENY")
+  field( DISV, "1")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT) $(ADDR) 1)BO_JOGR")
+  field( HIGH, "0.1")
+  field( ZNAM, "Not")
+  field( ONAM, "Yes")
+  field( VAL,  "0")
+}
+record( bo,"$(P):BO:$(MOD):CH$(N):GO:POS"){
+  field( DESC, "Go to position:")
+  field( SDIS, "$(P):BI:$(MOD):CH$(N):DENY")
+  field( DISV, "1")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT) $(ADDR) 1)BO_GOPOS")
+  field( HIGH, "0.1")
+  field( ZNAM, "Not")
+  field( ONAM, "Yes")
+  field( VAL,  "0")
+}
+record( bo,"$(P):BO:$(MOD):CH$(N):STOP"){
+  field( DESC, "Stop:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT) $(ADDR) 1)BO_STOP")
+  field( HIGH, "0.1")
+  field( ZNAM, "Not")
+  field( ONAM, "Yes")
+  field( VAL,  "0")
+}
+record( bo,"$(P):BO:$(MOD):CH$(N):OFF:LIM"){
+  field( DESC, "Get off limit:")
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT) $(ADDR) 1)BO_OFFLIM")
+  field( HIGH, "0.1")
+  field( ZNAM, "Not")
+  field( ONAM, "Yes")
+  field( VAL,  "0")
+}
+record( bi,"$(P):BI:$(MOD):CH$(N):DENY"){
+  field( DESC, "Deny flag:")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)BI_DENY")
+  field( ZNAM, "Allow")
+  field( ONAM, "Deny")
+}
+record( bi,"$(P):BI:$(MOD):CH$(N):LIM:FOR"){
+  field( DESC, "At forward limit:")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)BI_LIMF")
+  field( ZNAM, "Off")
+  field( ONAM, "On")
+}
+record( bi,"$(P):BI:$(MOD):CH$(N):LIM:REV"){
+  field( DESC, "At reverse limit:")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)BI_LIMR")
+  field( ZNAM, "Off")
+  field( ONAM, "On")
+}

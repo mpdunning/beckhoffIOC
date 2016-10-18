@@ -1,0 +1,22 @@
+record( bi, "$(P):BI:$(MOD):ERROR"){
+  field( DESC, "Error flag:")
+  field( DTYP, "asynInt32")
+  field( INP,  "@asyn($(PORT) 0 1)BI_ERROR")
+  field( SCAN, "I/O Intr")
+  field( ZNAM, "noError")
+  field( ONAM, "Error")
+  field( FLNK, "$(P):BO:$(MOD):ERROR")
+}
+record( bo, "$(P):BO:$(MOD):ERROR"){
+  field( DESC, "Error flag:")
+  field( OMSL, "closed_loop")
+  field( DOL,  "$(P):BI:$(MOD):ERROR")
+  field( OUT,  "$(P):BI:9000-$(M):ERROR PP")
+  field( ZNAM, "noError")
+  field( ONAM, "Error")
+  field( PINI, "YES")
+}
+record( bo, "$(P):BO:$(MOD):TEST"){
+  field( DTYP, "asynInt32")
+  field( OUT,  "@asyn($(PORT) 0 1)BO_TEST")
+}

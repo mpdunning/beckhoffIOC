@@ -1,0 +1,83 @@
+# motRegs.substitutions
+# For convenience, we create two ports, one has starting address of 0 for
+# handling register numbers 0 - 31, the other has starting address 32 for
+# handling register numbers 32 - 63.  This is done so that the device support
+# can be set to ASYN_MULTIDEVICE and then address is the register number.
+# Note, that registers 37,38,39,40,47,48,49, and 50 should only be written
+# to RAM area unless these values need to be changed "permanently" to servive
+# power cycle.  We write to RAM without setting the code word (0x1235) in
+# register 31.
+# So, three objects are created for each motor each with a port.  For example
+# A2531, A2531B, and A2531C.  Object with port A2531 has the poll loop thread
+# which does all periodic work.  The other two objects do all the
+# initialization and then just exist quietly.
+#-----------------------------------------------------------------------------
+file motordrv.db
+{
+pattern	{         MOD,    PORT,    PORTB,    PORTC}
+	{ 2531-1-$(M), A2531-1, A2531-1B, A2531-1C}
+}
+file motorIn.db
+{
+pattern	{ ADDR,       DESC,         MOD,    PORT}
+	{    0,  "Motor 1", 2531-1-$(M), A2531-1}
+}
+file motorCtrl.db
+{
+pattern	{ N, ADDR,         MOD,    PORT, LOPR, HOPR}
+	{ 1,    0, 2531-1-$(M), A2531-1,    0,  200}
+}
+file bkhAMotLiLo.db
+{
+pattern	{ ADDR,   DESC,         MOD,    PORT,   ITEM,   USER}
+	{    0,  CByte, 2531-1-$(M), A2531-1,  CBYTE,  CBYTE}
+	{    0,DataOut, 2531-1-$(M), A2531-1,DATAOUT,DATAOUT}
+	{    0,  CWord, 2531-1-$(M), A2531-1,  CWORD,  CWORD}
+}
+file motROReg.db
+{
+pattern	{ADDR,        DESC,         MOD,    PORT,  ITEM,  USER}
+	{   0,   PositionL, 2531-1-$(M),A2531-1B,  POSL, ROREG}
+	{   1,   PositionH, 2531-1-$(M),A2531-1B,  POSH, ROREG}
+	{   6, Temperature, 2531-1-$(M),A2531-1B,  TEMP, ROREG}
+	{   8,        Type, 2531-1-$(M),A2531-1B,  TYPE, ROREG}
+	{   9,   FirmwareR, 2531-1-$(M),A2531-1B, FWARE, ROREG}
+}
+file motRWReg.db
+{
+pattern	{ADDR,        DESC,         MOD,    PORT, R,  ITEM,  USER}
+	{   2,SetPositionL, 2531-1-$(M),A2531-1B, R, SPOSL,RWRREG}
+	{   3,SetPositionH, 2531-1-$(M),A2531-1B, R, SPOSH,RWRREG}
+	{   4,        Page, 2531-1-$(M),A2531-1B, R,  PAGE,RWRREG}
+	{   7,     Command, 2531-1-$(M),A2531-1B, R,  CMND,RWRREG}
+	{  31,    CodeWord, 2531-1-$(M),A2531-1B, R, CODEW,RWRREG}
+}
+file motRWReg.db
+{
+pattern	{ADDR,        DESC,         MOD,    PORT, R,  ITEM,  USER}
+	{   6,     MinVelo, 2531-1-$(M),A2531-1C, R,  MINV,RWRREG}
+	{   7,     MaxVelo, 2531-1-$(M),A2531-1C, R,  MAXV,RWRREG}
+	{   8,    MaxAccel, 2531-1-$(M),A2531-1C, R,  MAXA,RWRREG}
+	{  15, LoadAnglThr, 2531-1-$(M),A2531-1C, R, LANTH,RWRREG}
+	{  18,  EmergAccel, 2531-1-$(M),A2531-1C, R,  EACC,RWRREG}
+	{  26,    MaxDecel, 2531-1-$(M),A2531-1C, R,  MAXD,RWRREG}
+}
+file motRWReg.db
+{
+pattern	{ADDR,        DESC,         MOD,    PORT, R,  ITEM,  USER}
+	{   0,     Feature, 2531-1-$(M),A2531-1C, E,  FEAT,RWEREG}
+	{   1,   Steps/Rev, 2531-1-$(M),A2531-1C, E, FMOST,RWEREG}
+	{   2, EncoderStep, 2531-1-$(M),A2531-1C, E, ESTEP,RWEREG}
+	{   3, MaxCurrentA, 2531-1-$(M),A2531-1C, E, MAXCA,RWEREG}
+	{   4, MaxCurrentB, 2531-1-$(M),A2531-1C, E, MAXCB,RWEREG}
+	{   6, MinVelocity, 2531-1-$(M),A2531-1C, E,  MINV,RWEREG}
+	{   7, MaxVelocity, 2531-1-$(M),A2531-1C, E,  MAXV,RWEREG}
+	{   8,    MaxAccel, 2531-1-$(M),A2531-1C, E,  MAXA,RWEREG}
+	{   9, AccelThresh, 2531-1-$(M),A2531-1C, E, ACCTH,RWEREG}
+	{  14,    StepSize, 2531-1-$(M),A2531-1C, E, STPSZ,RWEREG}
+	{  15, LoadAnglThr, 2531-1-$(M),A2531-1C, E, LANTH,RWEREG}
+	{  18,  EmergAccel, 2531-1-$(M),A2531-1C, E,  EACC,RWEREG}
+	{  20,    Feature2, 2531-1-$(M),A2531-1C, E, FEAT2,RWEREG}
+	{  23, RefPositioL, 2531-1-$(M),A2531-1C, E, REFPL,RWEREG}
+	{  24, RefPositioH, 2531-1-$(M),A2531-1C, E, REFPH,RWEREG}
+}

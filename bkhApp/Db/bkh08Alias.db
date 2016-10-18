@@ -1,0 +1,6 @@
+alias("$(P):AI:3314F-$(M):CH1","$(P):LSR_ROOM:TEMP:TABLE1")
+alias("$(P):AI:3314F-$(M):CH2","$(P):LSR_ROOM:TEMP:AIR")
+alias("$(P):AI:3314F-$(M):CH3","$(P):LSR_ROOM:TEMP:ENCLOSURE_AIR")
+alias("$(P):AI:3314C-$(M):CH4","$(P):LSR_ROOM:TEMP:REGEN1_H2O")
+alias("$(P):AI:3314F-$(M):CH5","$(P):LSR_ROOM:TEMP:HVAC_DUCT")
+alias("$(P):AI:3314C-$(M):CH6","$(P):LSR_ROOM:TEMP:OSC_H2O")

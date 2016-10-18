@@ -1,0 +1,50 @@
+# This template is fo an analog device.  Convert Volt to vacuum pressure.
+# Used for ASTA bkhoff 5.
+#----------------------------------------------------------
+record( longin, "$(P):LI:$(MOD):SBYTE$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_SBYTE")
+}
+record( longin, "$(P):LI:$(MOD):DATA$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "asynInt32")
+  field( SCAN, "I/O Intr")
+  field( INP,  "@asyn($(PORT) $(ADDR) 1)LI_DATA")
+  field( FLNK, "$(P):AI:$(MOD):CH$(N)")
+}
+record( ai, "$(P):AI:$(MOD):CH$(N)"){
+  field( DESC, "$(DESC)")
+  field( DTYP, "Raw Soft Channel")
+  field( INP,  "$(P):LI:$(MOD):DATA$(N)")
+  field( LINR, "SLOPE")
+  field( EGU,  "$(EGU)")
+  field( ESLO, "$(ESLO)")
+  field( EOFF, "$(EOFF)")
+  field( PREC, "$(PREC)")
+  field( FLNK, "$(P):AS:$(MOD):CH$(N)")
+}
+record( ao,"$(P):AO:$(MOD):CH$(N):A"){
+  field( DESC, "Coeff 1:")
+  field( PREC, "$(PREC)")
+  field( VAL,  "5.80588e-9")
+}
+record( ao,"$(P):AO:$(MOD):CH$(N):B"){
+  field( DESC, "Coeff 2:")
+  field( PREC, "$(PREC)")
+  field( VAL,  "-103.974")
+}
+record( aSub, "$(P):AS:$(MOD):CH$(N)"){
+  field( DESC, "Convert:")
+  field( INAM, "bkh5Init")
+  field( SNAM, "bkh5Convert")
+  field( PREC, "3")
+  field( INPA, "$(P):AO:$(MOD):CH$(N):A.VAL")
+  field( FTA,  "DOUBLE")
+  field( INPB, "$(P):AO:$(MOD):CH$(N):B.VAL")
+  field( FTB,  "DOUBLE")
+  field( INPC, "$(P):AI:$(MOD):CH$(N).VAL")
+  field( FTC,  "DOUBLE")
+  field( FTVA, "DOUBLE")
+}

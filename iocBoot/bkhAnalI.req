@@ -1,0 +1,9 @@
+$(P):AI:$(MOD):CH$(N).DESC
+$(P):AI:$(MOD):CH$(N).HIHI
+$(P):AI:$(MOD):CH$(N).HIGH
+$(P):AI:$(MOD):CH$(N).LOW
+$(P):AI:$(MOD):CH$(N).LOLO
+$(P):AI:$(MOD):CH$(N).HHSV
+$(P):AI:$(MOD):CH$(N).HSV
+$(P):AI:$(MOD):CH$(N).LSV
+$(P):AI:$(MOD):CH$(N).LLSV
